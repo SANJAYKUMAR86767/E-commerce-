@@ -4,14 +4,13 @@ import App from "./App";
 import { Provider } from "react-redux";
 import store from "./store";
 import axios from "axios";
+import { positions, transitions, Provider as AlertProvider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
 
 if (process.env.REACT_APP_BACKEND_URL) {
   axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 }
 axios.defaults.withCredentials = true;
-
-import { positions, transitions, Provider as AlertProvider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
 
 const options = {
   timeout: 5000,
