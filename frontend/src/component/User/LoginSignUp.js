@@ -6,6 +6,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
 import PhoneIcon from "@material-ui/icons/Phone";
+import HomeIcon from "@material-ui/icons/Home";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -30,9 +31,10 @@ const LoginSignUp = ({ history, location }) => {
     email: "",
     password: "",
     mobileNo: "",
+    address: "",
   });
 
-  const { name, email, password, mobileNo } = user;
+  const { name, email, password, mobileNo, address } = user;
 
   const [avatar, setAvatar] = useState("/Profile.png");
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
@@ -51,6 +53,7 @@ const LoginSignUp = ({ history, location }) => {
     myForm.set("email", email);
     myForm.set("password", password);
     myForm.set("mobileNo", mobileNo);
+    myForm.set("address", address);
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
   };
@@ -121,8 +124,8 @@ const LoginSignUp = ({ history, location }) => {
                 <div className="loginEmail">
                   <MailOutlineIcon />
                   <input
-                    type="email"
-                    placeholder="Email"
+                    type="text"
+                    placeholder="Email / Mobile Number"
                     required
                     value={loginEmail}
                     onChange={(e) => setLoginEmail(e.target.value)}
@@ -191,6 +194,17 @@ const LoginSignUp = ({ history, location }) => {
                     onChange={registerDataChange}
                     maxLength="10"
                     pattern="[0-9]{10}"
+                  />
+                </div>
+                <div className="signUpAddress">
+                  <HomeIcon />
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    required
+                    name="address"
+                    value={address}
+                    onChange={registerDataChange}
                   />
                 </div>
 

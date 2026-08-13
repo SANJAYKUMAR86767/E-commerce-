@@ -164,6 +164,10 @@ const Profile = ({ history }) => {
                   <span className="detailValue">{user && user.mobileNo ? user.mobileNo : "+91 98765 43210"}</span>
                 </div>
                 <div className="detailItem">
+                  <span className="detailLabel">Registered Address</span>
+                  <span className="detailValue">{user && user.address ? user.address : "Not Provided"}</span>
+                </div>
+                <div className="detailItem">
                   <span className="detailLabel">Member Since</span>
                   <span className="detailValue">{user && user.createdAt ? String(user.createdAt).substr(0, 10) : "2026-08-13"}</span>
                 </div>

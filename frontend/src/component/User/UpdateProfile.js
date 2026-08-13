@@ -3,6 +3,8 @@ import "./UpdateProfile.css";
 import Loader from "../layout/Loader/Loader";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import FaceIcon from "@material-ui/icons/Face";
+import PhoneIcon from "@material-ui/icons/Phone";
+import HomeIcon from "@material-ui/icons/Home";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updateProfile, loadUser } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -18,6 +20,8 @@ const UpdateProfile = ({ history }) => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [mobileNo, setMobileNo] = useState("");
+  const [address, setAddress] = useState("");
   const [avatar, setAvatar] = useState();
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
 
@@ -28,7 +32,11 @@ const UpdateProfile = ({ history }) => {
 
     myForm.set("name", name);
     myForm.set("email", email);
-    myForm.set("avatar", avatar);
+    myForm.set("mobileNo", mobileNo);
+    myForm.set("address", address);
+    if (avatar) {
+      myForm.set("avatar", avatar);
+    }
     dispatch(updateProfile(myForm));
   };
 
@@ -49,7 +57,11 @@ const UpdateProfile = ({ history }) => {
     if (user) {
       setName(user.name);
       setEmail(user.email);
-      setAvatarPreview(user.avatar.url);
+      setMobileNo(user.mobileNo || "");
+      setAddress(user.address || "");
+      if (user.avatar) {
+        setAvatarPreview(user.avatar.url);
+      }
     }
 
     if (error) {
@@ -104,6 +116,30 @@ const UpdateProfile = ({ history }) => {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="updateProfileMobile">
+                  <PhoneIcon />
+                  <input
+                    type="text"
+                    placeholder="Mobile Number"
+                    required
+                    name="mobileNo"
+                    value={mobileNo}
+                    onChange={(e) => setMobileNo(e.target.value)}
+                    maxLength="10"
+                    pattern="[0-9]{10}"
+                  />
+                </div>
+                <div className="updateProfileAddress">
+                  <HomeIcon />
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    required
+                    name="address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                   />
                 </div>
 
