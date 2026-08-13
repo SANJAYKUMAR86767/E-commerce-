@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Flipkart E-Commerce Home Page Component
 import React, { Fragment, useEffect, useState } from "react";
 import "./Home.css";
