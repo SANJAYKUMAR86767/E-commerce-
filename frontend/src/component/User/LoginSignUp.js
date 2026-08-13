@@ -35,8 +35,8 @@ const LoginSignUp = ({ history, location }) => {
 
   const { name, email, password, mobileNo, address } = user;
 
-  const [avatar, setAvatar] = useState("/Profile.png");
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  const [avatar, setAvatar] = useState("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop");
+  const [avatarPreview, setAvatarPreview] = useState("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop");
 
   const loginSubmit = (e) => {
     e.preventDefault();

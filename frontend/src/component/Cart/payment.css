@@ -1,133 +1,219 @@
+/* Modern Payment Page Styling */
 .paymentContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(231, 231, 231);
-  height: 65vh;
-  margin: 2vmax;
+  background-color: #f3f4f6;
+  min-height: 75vh;
+  padding: 2rem;
 }
 
 .paymentForm {
-  background-color: white;
-  width: 25vw;
+  background-color: #ffffff;
+  width: 450px;
+  max-width: 100%;
   box-sizing: border-box;
-  padding: 3vmax;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
 }
 
 .paymentForm > p {
-  font: 400 2vmax "Roboto";
-  color: #5f259f;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
-  padding: 1vmax 0;
+  font-family: "Poppins", "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1e1b4b;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 1rem;
   text-align: center;
-  margin: auto;
-  width: 90%;
-  margin-bottom: 2vmax;
+  margin-bottom: 2rem;
 }
 
+/* Payment Method Toggle Tabs */
+.paymentMethodSelector {
+  display: flex;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 2rem;
+  gap: 4px;
+}
+
+.methodBtn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4b5563;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.methodBtn:hover {
+  color: #111827;
+}
+
+.methodBtn.active {
+  background-color: #ffffff;
+  color: #3f51b5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* QR scan codes */
 .upi-qr-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2vmax;
+  margin-bottom: 1.5rem;
+  background-color: #fafafa;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #f0f0f0;
 }
 
 .upi-qr-code {
   width: 180px;
   height: 180px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  border: 4px solid #5f259f;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  border: 4px solid #3f51b5;
   padding: 5px;
+  background-color: #ffffff;
 }
 
 .upi-id-text {
-  font: 500 1vmax "Roboto";
-  margin-top: 1vmax;
-  color: #333;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: #374151;
 }
 
 .upi-instructions {
-  font: 400 0.8vmax "Roboto";
-  color: #666;
+  font-size: 0.8rem;
+  color: #6b7280;
   text-align: center;
-  margin-top: 1vmax;
-  line-height: 1.5;
+  margin-top: 0.75rem;
+  line-height: 1.6;
 }
 
-.paymentForm > div {
+/* Form Inputs */
+.utrInputContainer {
   display: flex;
   align-items: center;
-  margin: 2vmax 0;
+  position: relative;
+  margin-bottom: 2rem;
 }
 
-.paymentForm > div > svg {
+.utrInputContainer svg {
   position: absolute;
-  transform: translateX(1vmax);
-  font-size: 1.6vmax;
-  color: rgba(0, 0, 0, 0.623);
+  left: 1rem;
+  font-size: 1.4rem;
+  color: #9ca3af;
 }
 
 .paymentInput {
-  padding: 1vmax 4vmax;
-  padding-right: 1vmax;
+  padding: 0.85rem 1rem 0.85rem 3rem;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.267);
-  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
   outline: none;
-  font: 300 1vmax "Roboto";
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
+.paymentInput:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 10px rgba(63, 81, 181, 0.15);
+}
+
+/* COD UI Styling */
+.cod-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background-color: #f0fdf4;
+  border-radius: 16px;
+  border: 1px solid #bbf7d0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cod-icon-wrapper {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.cod-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 0.5rem;
+}
+
+.cod-instructions {
+  font-size: 0.9rem;
+  color: #1e293b;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.deliveryDetailsPreview {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dcfce7;
+  font-size: 0.8rem;
+  color: #374151;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+/* Submit Buttons */
 .paymentFormBtn {
   border: none;
-  background-color: #5f259f;
+  background: linear-gradient(135deg, #3f51b5 0%, #303f9f 100%);
   color: white;
-  font: 500 1vmax "Roboto";
+  font-weight: 600;
+  font-size: 1rem;
   width: 100%;
-  padding: 1vmax;
+  padding: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s ease;
   outline: none;
-  border-radius: 8px;
-  margin-top: 1vmax;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.2);
 }
 
 .paymentFormBtn:hover {
-  background-color: #4a1d7c;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(95, 37, 159, 0.3);
+  box-shadow: 0 6px 16px rgba(63, 81, 181, 0.3);
 }
 
+.paymentFormBtn:active {
+  transform: translateY(0);
+}
+
+/* Responsiveness */
 @media screen and (max-width: 600px) {
   .paymentForm {
-    width: 90vw;
-  }
-  .paymentForm > p {
-    font: 400 6vw "Roboto";
-  }
-  .paymentForm > div > svg {
-    font-size: 5vw;
-  }
-  .paymentInput {
-    padding: 3vw 10vw;
-    font: 300 3vw "Roboto";
-  }
-  .paymentFormBtn {
-    font: 500 3vw "Roboto";
-    padding: 3vw;
-  }
-  .upi-qr-code {
-    width: 150px;
-    height: 150px;
-  }
-  .upi-id-text {
-    font: 500 3vw "Roboto";
-  }
-  .upi-instructions {
-    font: 400 2.5vw "Roboto";
+    width: 100%;
+    padding: 1.5rem;
   }
 }

@@ -12,6 +12,17 @@ if (process.env.REACT_APP_BACKEND_URL) {
 }
 axios.defaults.withCredentials = true;
 
+// Interceptor to add token to header
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers["Authorization"] = `Bearer ${token}`;
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
 const options = {
   timeout: 5000,
   position: positions.BOTTOM_CENTER,
