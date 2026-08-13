@@ -33,3 +33,5 @@ const server = app.listen(PORT, () => {
 process.on("unhandledRejection", (err) => {
   console.log(`Unhandled Rejection Warning: ${err.message}`);
 });
+
+module.exports = app;
