@@ -1,8 +1,47 @@
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
     }
-  ]
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.js"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "frontend/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "frontend/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "frontend/manifest.json"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/index.html"
+    }
+  ],
+  "env": {
+    "DB_URI": "mongodb+srv://kumarsanjay12012005_db_user:Sanjay2005@cluster0.ntryxyn.mongodb.net/Ecommerce?retryWrites=true&w=majority&appName=Cluster0",
+    "JWT_SECRET": "WHERETYUIOKJHGFDSAZXCVBNM",
+    "JWT_EXPIRE": "5d",
+    "COOKIE_EXPIRE": "5",
+    "CLOUDINARY_NAME": "samplecloud",
+    "CLOUDINARY_API_KEY": "1234567890",
+    "CLOUDINARY_API_SECRET": "samplesecret"
+  }
 }
