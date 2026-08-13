@@ -35,10 +35,10 @@ exports.deleteCoupon = catchAsyncErrors(async (req, res, next) => {
   const coupon = await Coupon.findById(req.params.id);
 
   if (!coupon) {
-    return next(new ErrorHander("Coupon not found", 44));
+    return next(new ErrorHander("Coupon not found", 404));
   }
 
-  await coupon.remove();
+  await coupon.deleteOne();
 
   res.status(200).json({
     success: true,
