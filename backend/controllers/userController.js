@@ -8,11 +8,26 @@ const cloudinary = require("cloudinary");
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-  const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-    folder: "avatars",
-    width: 150,
-    crop: "scale",
-  });
+  let avatarObj = {
+    public_id: "default_avatar_id",
+    url: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop",
+  };
+
+  if (req.body.avatar && req.body.avatar !== "/Profile.png" && !req.body.avatar.startsWith("http")) {
+    try {
+      const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "avatars",
+        width: 150,
+        crop: "scale",
+      });
+      avatarObj = {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      };
+    } catch (e) {
+      console.log("Cloudinary upload failed, using default avatar:", e.message);
+    }
+  }
 
   const { name, email, password, mobileNo, address } = req.body;
 
@@ -22,10 +37,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     password,
     mobileNo,
     address: address || "",
-    avatar: {
-      public_id: myCloud.public_id,
-      url: myCloud.secure_url,
-    },
+    avatar: avatarObj,
   });
 
   sendToken(user, 201, res);
@@ -199,22 +211,27 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
   };
 
   if (req.body.avatar !== "") {
-    const user = await User.findById(req.user.id);
+    try {
+      const user = await User.findById(req.user.id);
+      const imageId = user.avatar.public_id;
 
-    const imageId = user.avatar.public_id;
+      if (imageId && imageId !== "default_avatar_id") {
+        await cloudinary.v2.uploader.destroy(imageId);
+      }
 
-    await cloudinary.v2.uploader.destroy(imageId);
+      const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "avatars",
+        width: 150,
+        crop: "scale",
+      });
 
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-      folder: "avatars",
-      width: 150,
-      crop: "scale",
-    });
-
-    newUserData.avatar = {
-      public_id: myCloud.public_id,
-      url: myCloud.secure_url,
-    };
+      newUserData.avatar = {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      };
+    } catch (e) {
+      console.log("Cloudinary avatar update failed:", e.message);
+    }
   }
 
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
