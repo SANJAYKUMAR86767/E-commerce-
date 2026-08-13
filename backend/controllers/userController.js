@@ -14,13 +14,14 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     crop: "scale",
   });
 
-  const { name, email, password, mobileNo } = req.body;
+  const { name, email, password, mobileNo, address } = req.body;
 
   const user = await User.create({
     name,
     email,
     password,
     mobileNo,
+    address: address || "",
     avatar: {
       public_id: myCloud.public_id,
       url: myCloud.secure_url,
@@ -34,22 +35,23 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
 
-  // checking if user has given password and email both
-
+  // checking if user has given password and email/mobileNo both
   if (!email || !password) {
-    return next(new ErrorHander("Please Enter Email & Password", 400));
+    return next(new ErrorHander("Please Enter Email/Mobile Number & Password", 400));
   }
 
-  const user = await User.findOne({ email }).select("+password");
+  const user = await User.findOne({
+    $or: [{ email: email }, { mobileNo: email }],
+  }).select("+password");
 
   if (!user) {
-    return next(new ErrorHander("Invalid email or password", 401));
+    return next(new ErrorHander("Invalid email, mobile number or password", 401));
   }
 
   const isPasswordMatched = await user.comparePassword(password);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHander("Invalid email or password", 401));
+    return next(new ErrorHander("Invalid email, mobile number or password", 401));
   }
 
   sendToken(user, 200, res);
@@ -192,6 +194,8 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
     email: req.body.email,
+    mobileNo: req.body.mobileNo,
+    address: req.body.address,
   };
 
   if (req.body.avatar !== "") {

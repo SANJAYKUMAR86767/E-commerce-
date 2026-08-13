@@ -1,203 +1,494 @@
+/* Modern & Premium Confirm Order Page Styling */
 .confirmOrderPage {
-  height: 100vh;
-  background-color: white;
   display: grid;
-  grid-template-columns: 6fr 3fr;
+  grid-template-columns: 7fr 4fr;
+  gap: 2.5rem;
+  max-width: 1300px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  background-color: #f7f9fc;
+  min-height: calc(100vh - 100px);
 }
 
-.confirmOrderPage > div:last-child {
-  border-left: 1px solid rgba(0, 0, 0, 0.247);
-}
-
-.confirmshippingArea {
-  padding: 5vmax;
-  padding-bottom: 0%;
-}
-
-.confirmshippingArea > p {
-  font: 400 1.8vmax "Roboto";
-}
-
-.confirmshippingAreaBox,
-.confirmCartItemsContainer {
-  margin: 2vmax;
-}
-
-.confirmshippingAreaBox > div {
+.confirmLeftArea {
   display: flex;
-  margin: 1vmax 0;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.confirmshippingAreaBox > div > p {
-  font: 400 1vmax "Roboto";
-  color: black;
-}
-.confirmshippingAreaBox > div > span {
-  margin: 0 1vmax;
-  font: 100 1vmax "Roboto";
-  color: #575757;
-}
-
-.confirmCartItems > p {
-  font: 400 1.8vmax "Roboto";
+/* Glassmorphic & Modern Cards */
+.confirmCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.confirmCartItems {
-  padding: 5vmax;
-  padding-top: 2vmax;
+.confirmCard:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
 }
 
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f4f8;
+  padding-bottom: 1rem;
+}
+
+.headerIcon {
+  color: #3f51b5;
+  font-size: 1.8rem !important;
+}
+
+.cardHeader h6 {
+  font-family: "Poppins", "Roboto", sans-serif;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* Shipping Info Styling */
+.confirmshippingAreaBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.shippingRow {
+  display: flex;
+  align-items: flex-start;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+.shippingLabel {
+  font-weight: 600;
+  color: #4a5568;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.shippingValue {
+  color: #2d3748;
+}
+
+/* Delivery Schedule Styling */
+.sectionSubtitle {
+  font-size: 0.95rem;
+  color: #718096;
+  margin-bottom: 1.25rem;
+}
+
+.scheduleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Date Picker Layout */
+.datePickerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.dateSlotButton {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.dateSlotButton:hover {
+  border-color: #3f51b5;
+  background: #f8fafc;
+}
+
+.dateSlotButton.active {
+  border-color: #3f51b5;
+  background: #eef2ff;
+  color: #3f51b5;
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.15);
+}
+
+.dateText {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.dateSlotButton.active .statusDot {
+  background: #3f51b5;
+}
+
+/* Time Picker Layout */
+.timePickerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.timeSlotButton {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4a5568;
+  transition: all 0.2s ease;
+}
+
+.timeSlotButton:hover {
+  background: #f8fafc;
+  border-color: #cbd5e0;
+}
+
+.timeSlotButton.active {
+  border-color: #3f51b5;
+  background: #eef2ff;
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+.slotTimeIcon {
+  font-size: 1.1rem !important;
+  color: inherit;
+}
+
+/* Cart Items Styling */
 .confirmCartItemsContainer {
-  max-height: 20vmax;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 280px;
   overflow-y: auto;
+  padding-right: 0.5rem;
 }
 
-.confirmCartItemsContainer > div {
+/* Custom Scrollbar for Items */
+.confirmCartItemsContainer::-webkit-scrollbar {
+  width: 6px;
+}
+.confirmCartItemsContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+.confirmCartItemsContainer::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+.confirmCartItemsContainer::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+.confirmCartItem {
   display: flex;
-  font: 400 1vmax "Roboto";
   align-items: center;
   justify-content: space-between;
-  margin: 2vmax 0;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  gap: 1rem;
 }
 
-.confirmCartItemsContainer > div > img {
-  width: 3vmax;
+.itemImgWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
 }
 
-.confirmCartItemsContainer > div > a {
-  color: #575757;
-  margin: 0 2vmax;
-  width: 60%;
+.itemImgWrapper img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.itemNameWrapper {
+  flex-grow: 1;
+}
+
+.itemNameWrapper a {
   text-decoration: none;
+  color: #2d3748;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.confirmCartItemsContainer > div > span {
-  font: 100 1vmax "Roboto";
-  color: #5e5e5e;
+.itemNameWrapper a:hover {
+  color: #3f51b5;
+}
+
+.itemPriceWrapper {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+.itemPriceWrapper b {
+  color: #1a202c;
+  font-weight: 600;
+}
+
+/* Right Checkout Order Summary Area */
+.confirmRightArea {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
 }
 
 .orderSummary {
-  padding: 7vmax;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
 }
 
-.orderSummary > p {
+.summaryTitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 1.5rem !important;
   text-align: center;
-  font: 400 1.8vmax "Roboto";
-  border-bottom: 1px solid rgba(0, 0, 0, 0.267);
-  padding: 1vmax;
-  width: 100%;
-  margin: auto;
-  box-sizing: border-box;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f4f8;
 }
 
-.orderSummary > div > div {
+/* Coupon Section */
+.couponSection {
+  margin-bottom: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px dashed #cbd5e0;
+}
+
+.couponHeader {
   display: flex;
-  font: 300 1vmax "Roboto";
-  justify-content: space-between;
-  margin: 2vmax 0;
-}
-.orderSummary > div > div > span {
-  color: rgba(0, 0, 0, 0.692);
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.75rem;
 }
 
+.couponIcon {
+  color: #3f51b5;
+  font-size: 1.1rem !important;
+}
+
+.couponForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.couponForm input {
+  flex-grow: 1;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease;
+}
+
+.couponForm input:focus {
+  border-color: #3f51b5;
+}
+
+.applyCouponBtn {
+  background: #3f51b5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.applyCouponBtn:hover {
+  background: #303f9f;
+}
+
+.removeCouponBtn {
+  background: #e53e3e;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.removeCouponBtn:hover {
+  background: #c53030;
+}
+
+.couponError {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* Pricing Grid */
+.summaryDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 1.5rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+.summaryRow span {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.deliverySelectedRow {
+  align-items: center;
+}
+
+.deliveryPill {
+  background: #eef2ff !important;
+  color: #3f51b5 !important;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.discountRow {
+  color: #38a169;
+}
+
+.discountText {
+  color: #38a169 !important;
+}
+
+/* Total Price & CTA Button */
 .orderSummaryTotal {
   display: flex;
-  font: 300 1vmax "Roboto";
   justify-content: space-between;
-  border-top: 1px solid rgba(0, 0, 0, 0.363);
-  padding: 2vmax 0;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-.orderSummary > button {
-  background-color: tomato;
-  color: white;
-  width: 100%;
-  padding: 1vmax;
+.orderSummaryTotal p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.orderSummaryTotal span {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #3f51b5;
+}
+
+.checkoutProceedBtn {
+  background: linear-gradient(135deg, #3f51b5 0%, #303f9f 100%);
+  color: #ffffff;
   border: none;
-  margin: auto;
+  border-radius: 12px;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.5s;
-  font: 400 1vmax "Roboto";
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.25);
 }
 
-.orderSummary > button:hover {
-  background-color: rgb(192, 71, 50);
+.checkoutProceedBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(63, 81, 181, 0.35);
+}
+
+.checkoutProceedBtn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 900px) {
+  .confirmOrderPage {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 1rem auto;
+  }
+
+  .confirmRightArea {
+    position: static;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .confirmOrderPage {
+  .confirmCard {
+    padding: 1.25rem;
+  }
+
+  .datePickerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timePickerGrid {
     grid-template-columns: 1fr;
-    height: unset;
   }
 
-  .confirmOrderPage > div:last-child {
-    border-left: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.247);
+  .confirmCartItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
-  .confirmshippingArea > p {
-    font: 400 6vw "Roboto";
+  .itemNameWrapper {
+    width: 100%;
   }
 
-  .confirmshippingAreaBox > div {
-    display: flex;
-    margin: 6vw 0;
-  }
-
-  .confirmshippingAreaBox > div > p {
-    font: 400 4vw "Roboto";
-  }
-  .confirmshippingAreaBox > div > span {
-    font: 100 4vw "Roboto";
-  }
-
-  .confirmCartItems > p {
-    font: 400 6vw "Roboto";
-  }
-
-  .confirmCartItemsContainer {
-    max-height: 50vw;
-  }
-
-  .confirmCartItemsContainer > div {
-    font: 400 4vw "Roboto";
-    margin: 4vw 0;
-  }
-
-  .confirmCartItemsContainer > div > img {
-    width: 10vw;
-  }
-
-  .confirmCartItemsContainer > div > a {
-    margin: 0;
-    width: 30%;
-  }
-
-  .confirmCartItemsContainer > div > span {
-    font: 100 4vw "Roboto";
-  }
-
-  .orderSummary {
-    padding: 12vw;
-  }
-
-  .orderSummary > p {
-    font: 400 6vw "Roboto";
-    padding: 4vw;
-  }
-
-  .orderSummary > div > div {
-    font: 300 4vw "Roboto";
-  }
-
-  .orderSummaryTotal {
-    font: 300 4vw "Roboto";
-    padding: 5vw 0;
-  }
-
-  .orderSummary > button {
-    padding: 4vw;
-    margin: 4vw auto;
-    font: 400 4vw "Roboto";
+  .itemPriceWrapper {
+    width: 100%;
+    text-align: left;
   }
 }

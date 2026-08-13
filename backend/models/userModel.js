@@ -29,6 +29,11 @@ const userSchema = new mongoose.Schema({
     minLength: [10, "Mobile Number should be exactly 10 digits"],
     maxLength: [10, "Mobile Number should be exactly 10 digits"],
   },
+  address: {
+    type: String,
+    required: false,
+    default: "",
+  },
   avatar: {
     public_id: {
       type: String,
