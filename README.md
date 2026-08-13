@@ -1,108 +1,86 @@
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop" alt="E-Commerce Banner" width="100%" style="border-radius: 10px; margin-bottom: 20px;">
+  <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop" alt="E-Commerce Banner" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 30px;">
   
-  <h1>🛍️ MegaMart E-Commerce Platform</h1>
-  <p><strong>A Highly Advanced, Production-Ready MERN Stack E-Commerce Application</strong></p>
+  <h1 align="center">🛍️ MegaMart E-Commerce Platform (MERN Stack)</h1>
+  <p align="center"><strong>A Highly Advanced, Production-Ready Full-Stack Application</strong></p>
   
-  <p>
-    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
-    <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js" />
-    <img src="https://img.shields.io/badge/MongoDB_Atlas-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Atlas" />
-    <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" />
-  </p>
-  
-  <p>
-    <i>Built meticulously with focus on <strong>Premium UI/UX, Secure Authentication, and Scalable Backend Architecture.</strong></i>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" alt="Status" />
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License" />
+    <img src="https://img.shields.io/badge/Version-2.0.0-orange?style=for-the-badge" alt="Version" />
   </p>
 </div>
 
 <br />
 
-## 🌟 Why This Project Stands Out (Recruiter Highlights)
+## 💻 Languages, Skills & Technologies Used
 
-This isn't just a standard tutorial clone; this is a heavily modified and advanced implementation featuring real-world modules designed to impress:
+This project was built using industry-standard technologies to ensure high performance, security, and scalability. 
 
-- **🚀 Live MongoDB Atlas Integration:** Fully migrated from local instances to a highly available MongoDB Atlas Cluster.
-- **💳 Custom PhonePe UPI Payment Gateway:** Developed a custom checkout flow integrating PhonePe UPI via dynamic QR codes, bypassing traditional high-fee gateways.
-- **🛒 The "Super Kirana" Module:** Added a specialized Daily Needs & Grocery section featuring vibrant micro-animations, discount strikethroughs, and an engaging "Add to Cart" UX.
-- **🔐 Advanced Secure Auth & Mobile Registration:** Expanded the standard MERN schema to enforce strict **10-Digit Mobile Number validation** during signup, alongside a beautifully redesigned "Forgot Password" flow with automated Email triggers (Nodemailer).
-- **🎨 Glassmorphism & Micro-Interactions:** Upgraded the legacy UI with modern Glassmorphism, smooth CSS transitions, dynamic hover-states, and high-quality image renders.
+### Core Stack
+<p>
+  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Express.js" />
+  <img src="https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+</p>
 
----
+### Frontend Languages & Tools
+<p>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" />
+  <img src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" alt="Material UI" />
+</p>
 
-## 📸 Platform Sneak Peek
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop" alt="Super Kirana Store" />
-      <br />
-      <b>Super Kirana & Grocery Store</b>
-    </td>
-    <td align="center">
-      <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=500&auto=format&fit=crop" alt="Custom Checkout" />
-      <br />
-      <b>PhonePe Custom UPI Checkout</b>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&auto=format&fit=crop" alt="Auth Flow" />
-      <br />
-      <b>Advanced Mobile & Email Auth Flow</b>
-    </td>
-    <td align="center">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop" alt="Dashboard" />
-      <br />
-      <b>Robust Admin Dashboard</b>
-    </td>
-  </tr>
-</table>
+### Backend & Database Services
+<p>
+  <img src="https://img.shields.io/badge/MongoDB_Atlas-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Atlas" />
+  <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens" alt="JWT" />
+  <img src="https://img.shields.io/badge/Nodemailer-00A98F?style=for-the-badge" alt="Nodemailer" />
+  <img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=Cloudinary&logoColor=white" alt="Cloudinary" />
+</p>
 
 ---
 
-## 🛠️ Technology Stack Used
+## 🌟 Visual Showcase & Key Features
 
-### **Frontend (Client)**
-* **React.js** (Functional Components, Hooks)
-* **Redux & Redux Thunk** (Global State Management)
-* **Vanilla CSS3** (Custom responsive design, Animations, Glassmorphism)
-* **React Router Dom** (Dynamic Routing)
-* **Material-UI (MUI)** (Icons and specific UI components)
+Below is a detailed look at the core components of the platform, demonstrating the complex features and beautiful UI/UX design.
 
-### **Backend (Server)**
-* **Node.js & Express.js** (RESTful API architecture)
-* **MongoDB Atlas** (Cloud Database)
-* **Mongoose** (Object Data Modeling)
-* **JSON Web Tokens (JWT)** (Stateless secure authentication)
-* **Bcrypt.js** (Password Hashing)
-* **Nodemailer** (Automated Emailing service)
-* **Cloudinary** (Cloud image storage and optimization)
+### 1. 🛒 The "Super Kirana" Module & Product Hub
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1000&auto=format&fit=crop" width="100%" style="border-radius: 10px; margin-bottom: 10px;" alt="Super Kirana Store" />
 
----
+* **Dynamic Rendering:** A specialized Daily Needs & Grocery section featuring vibrant micro-animations.
+* **Smart UI:** Discount strikethroughs, bold tags, and an engaging interactive "Add to Cart" UX.
+* **Glassmorphism:** Upgraded legacy UI with modern Glassmorphism and smooth CSS transitions.
 
-## ⚡ Core Features
+<br />
 
-1. **User Authentication & Authorization**
-   - Secure Login/Signup with Password & Mobile Number.
-   - Password reset workflow with email tokens.
-   - Role-based access control (Admin vs User).
+### 2. 💳 Custom PhonePe UPI Payment Integration
+<img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=1000&auto=format&fit=crop" width="100%" style="border-radius: 10px; margin-bottom: 10px;" alt="Checkout Flow" />
 
-2. **Advanced Product Management**
-   - Filter products by Category, Price Range, and Ratings.
-   - Comprehensive Search Bar functionality.
-   - Leave product Reviews & Ratings.
+* **Bypassing High Fees:** Developed a custom checkout flow integrating **PhonePe UPI**.
+* **Dynamic QR Generation:** Users can scan a custom QR code at checkout or enter their UPI ID.
+* **Live Price Calculation:** The cart dynamically updates shipping and tax totals before rendering the payment gateway.
 
-3. **Cart & Checkout Workflow**
-   - Interactive Cart with live price calculation.
-   - Multi-step checkout process (Shipping -> Confirm -> Payment).
-   - Custom PhonePe QR Payment Integration.
+<br />
 
-4. **Admin Dashboard**
-   - Full CRUD operations for Products.
-   - Manage User Roles and Accounts.
-   - Track and Update Order Statuses.
+### 3. 🔐 Advanced Secure Auth & Mobile Registration
+<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1000&auto=format&fit=crop" width="100%" style="border-radius: 10px; margin-bottom: 10px;" alt="Secure Auth" />
+
+* **Dual Authentication:** Secure Login/Signup with both Email and a strict **10-Digit Mobile Number validation**.
+* **Encrypted Passwords:** Utilizing `bcrypt.js` for robust hashing.
+* **Automated Emails:** Beautifully redesigned "Forgot Password" flow with automated Email reset tokens powered by `Nodemailer`.
+
+<br />
+
+### 4. 📊 Robust Admin Dashboard & Live MongoDB Atlas
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&auto=format&fit=crop" width="100%" style="border-radius: 10px; margin-bottom: 10px;" alt="Admin Dashboard" />
+
+* **Cloud Database:** Fully migrated from local instances to a highly available **MongoDB Atlas Cluster**.
+* **Full CRUD Operations:** Admins can Create, Read, Update, and Delete products, track orders, and manage users.
+* **Image Hosting:** Automatic image compression and secure hosting via **Cloudinary API**.
 
 ---
 
