@@ -11,6 +11,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 
+import React, { Fragment, useState, useEffect } from "react";
+import "./LoginSignUp.css";
+import Loader from "../layout/Loader/Loader";
+import { Link } from "react-router-dom";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import FaceIcon from "@material-ui/icons/Face";
+import PhoneIcon from "@material-ui/icons/Phone";
+import HomeIcon from "@material-ui/icons/Home";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, login, register } from "../../actions/userAction";
+import { useAlert } from "react-alert";
+
 const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -19,9 +32,8 @@ const LoginSignUp = ({ history, location }) => {
     (state) => state.user
   );
 
-  const loginTab = useRef(null);
-  const registerTab = useRef(null);
-  const switcherTab = useRef(null);
+  // Path detection for splitting Login and Register pages
+  const isRegisterPage = location.pathname === "/register";
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -88,20 +100,11 @@ const LoginSignUp = ({ history, location }) => {
     }
   }, [dispatch, error, alert, history, isAuthenticated, redirect]);
 
-  const switchTabs = (e, tab) => {
+  const navigateToTab = (tab) => {
     if (tab === "login") {
-      switcherTab.current.classList.add("shiftToNeutral");
-      switcherTab.current.classList.remove("shiftToRight");
-
-      registerTab.current.classList.remove("shiftToNeutralForm");
-      loginTab.current.classList.remove("shiftToLeft");
-    }
-    if (tab === "register") {
-      switcherTab.current.classList.add("shiftToRight");
-      switcherTab.current.classList.remove("shiftToNeutral");
-
-      registerTab.current.classList.add("shiftToNeutralForm");
-      loginTab.current.classList.add("shiftToLeft");
+      history.push("/login");
+    } else {
+      history.push("/register");
     }
   };
 
@@ -112,119 +115,156 @@ const LoginSignUp = ({ history, location }) => {
       ) : (
         <Fragment>
           <div className="LoginSignUpContainer">
-            <div className="LoginSignUpBox">
-              <div>
-                <div className="login_signUp_toggle">
-                  <p onClick={(e) => switchTabs(e, "login")}>LOGIN</p>
-                  <p onClick={(e) => switchTabs(e, "register")}>REGISTER</p>
-                </div>
-                <button ref={switcherTab}></button>
-              </div>
-              <form className="loginForm" ref={loginTab} onSubmit={loginSubmit}>
-                <div className="loginEmail">
-                  <MailOutlineIcon />
-                  <input
-                    type="text"
-                    placeholder="Email / Mobile Number"
-                    required
-                    value={loginEmail}
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                  />
-                </div>
-                <div className="loginPassword">
-                  <LockOpenIcon />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    required
-                    value={loginPassword}
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                  />
-                </div>
-                <Link to="/password/forgot">Forget Password ?</Link>
-                <input type="submit" value="Login" className="loginBtn" />
-              </form>
-              <form
-                className="signUpForm"
-                ref={registerTab}
-                encType="multipart/form-data"
-                onSubmit={registerSubmit}
-              >
-                <div className="signUpName">
-                  <FaceIcon />
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    required
-                    name="name"
-                    value={name}
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <div className="signUpEmail">
-                  <MailOutlineIcon />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    name="email"
-                    value={email}
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <div className="signUpPassword">
-                  <LockOpenIcon />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    required
-                    name="password"
-                    value={password}
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <div className="signUpMobile">
-                  <PhoneIcon />
-                  <input
-                    type="text"
-                    placeholder="Mobile Number (10 digits)"
-                    required
-                    name="mobileNo"
-                    value={mobileNo}
-                    onChange={registerDataChange}
-                    maxLength="10"
-                    pattern="[0-9]{10}"
-                  />
-                </div>
-                <div className="signUpAddress">
-                  <HomeIcon />
-                  <input
-                    type="text"
-                    placeholder="Address"
-                    required
-                    name="address"
-                    value={address}
-                    onChange={registerDataChange}
-                  />
+            {/* 3D Scene Wrapper */}
+            <div className="card3DWrapper">
+              <div className={`LoginSignUpBox ${isRegisterPage ? "flipped" : ""}`}>
+                
+                {/* FRONT FACE - LOGIN CARD */}
+                <div className="cardFace cardFront">
+                  <div className="login_signUp_toggle">
+                    <p className="activeTab" onClick={() => navigateToTab("login")}>LOGIN</p>
+                    <p onClick={() => navigateToTab("register")}>REGISTER</p>
+                  </div>
+                  
+                  <form className="loginForm" onSubmit={loginSubmit}>
+                    <div className="formHeader">
+                      <h2>Welcome Back</h2>
+                      <p>Sign in to continue your shopping journey</p>
+                    </div>
+
+                    <div className="loginEmail">
+                      <MailOutlineIcon />
+                      <input
+                        type="text"
+                        placeholder="Email / Mobile Number"
+                        required
+                        value={loginEmail}
+                        onChange={(e) => setLoginEmail(e.target.value)}
+                      />
+                    </div>
+                    
+                    <div className="loginPassword">
+                      <LockOpenIcon />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        required
+                        value={loginPassword}
+                        onChange={(e) => setLoginPassword(e.target.value)}
+                      />
+                    </div>
+                    
+                    <Link className="forgotPasswordLink" to="/password/forgot">Forgot Password?</Link>
+                    <input type="submit" value="Login" className="loginBtn" />
+                    
+                    <p className="switchPrompt">
+                      New to Ecommerce? <span onClick={() => navigateToTab("register")}>Create account</span>
+                    </p>
+                  </form>
                 </div>
 
-                <div id="registerImage">
-                  <img src={avatarPreview} alt="Avatar Preview" />
-                  <input
-                    type="file"
-                    name="avatar"
-                    accept="image/*"
-                    onChange={registerDataChange}
-                  />
+                {/* BACK FACE - REGISTER CARD */}
+                <div className="cardFace cardBack">
+                  <div className="login_signUp_toggle">
+                    <p onClick={() => navigateToTab("login")}>LOGIN</p>
+                    <p className="activeTab" onClick={() => navigateToTab("register")}>REGISTER</p>
+                  </div>
+                  
+                  <form
+                    className="signUpForm"
+                    encType="multipart/form-data"
+                    onSubmit={registerSubmit}
+                  >
+                    <div className="formHeader">
+                      <h2>Join Us</h2>
+                      <p>Create your credentials to explore products</p>
+                    </div>
+
+                    <div className="signUpName">
+                      <FaceIcon />
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        required
+                        name="name"
+                        value={name}
+                        onChange={registerDataChange}
+                      />
+                    </div>
+                    
+                    <div className="signUpEmail">
+                      <MailOutlineIcon />
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        required
+                        name="email"
+                        value={email}
+                        onChange={registerDataChange}
+                      />
+                    </div>
+                    
+                    <div className="signUpPassword">
+                      <LockOpenIcon />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        required
+                        name="password"
+                        value={password}
+                        onChange={registerDataChange}
+                      />
+                    </div>
+                    
+                    <div className="signUpMobile">
+                      <PhoneIcon />
+                      <input
+                        type="text"
+                        placeholder="Mobile Number (10 digits)"
+                        required
+                        name="mobileNo"
+                        value={mobileNo}
+                        onChange={registerDataChange}
+                        maxLength="10"
+                        pattern="[0-9]{10}"
+                      />
+                    </div>
+                    
+                    <div className="signUpAddress">
+                      <HomeIcon />
+                      <input
+                        type="text"
+                        placeholder="Address"
+                        required
+                        name="address"
+                        value={address}
+                        onChange={registerDataChange}
+                      />
+                    </div>
+
+                    <div id="registerImage">
+                      <img src={avatarPreview} alt="Avatar Preview" />
+                      <input
+                        type="file"
+                        name="avatar"
+                        accept="image/*"
+                        onChange={registerDataChange}
+                      />
+                    </div>
+                    
+                    <input type="submit" value="Register" className="signUpBtn" />
+                    
+                    <p className="switchPrompt">
+                      Already have an account? <span onClick={() => navigateToTab("login")}>Sign in</span>
+                    </p>
+                  </form>
                 </div>
-                <input type="submit" value="Register" className="signUpBtn" />
-              </form>
+
+              </div>
             </div>
           </div>
         </Fragment>
       )}
-    </Fragment>
-  );
-};
 
-export default LoginSignUp;
+
+

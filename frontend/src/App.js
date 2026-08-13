@@ -113,6 +113,7 @@ function App() {
           <Route exact path="/password/reset/:token" component={ResetPassword} />
 
           <Route exact path="/login" component={LoginSignUp} />
+          <Route exact path="/register" component={LoginSignUp} />
 
           <Route exact path="/cart" component={Cart} />
 
