@@ -1,0 +1,175 @@
+/* ═════════════════════════════════════════════════════════════
+   PRODUCTS CATALOG PAGE STYLING (Superior to Flipkart Aesthetics)
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.productsHeading {
+  margin: 2rem auto 1rem;
+  width: fit-content;
+  background: linear-gradient(135deg, #2874f0, #0052cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.productsPageContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem 4rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.products {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  min-height: 40vh;
+}
+
+.filterBox {
+  width: 250px;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  padding: 1.5rem;
+  height: fit-content;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.filterBox p, 
+.filterBox legend,
+.filterBox .MuiTypography-root {
+  color: #1e293b !important;
+  font-weight: 800 !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 0.6rem !important;
+  background: transparent !important;
+}
+
+.sortSelect {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.sortSelect:focus {
+  border-color: #2874f0;
+}
+
+.categoryBox {
+  padding: 0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.category-link {
+  list-style: none;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-link:hover {
+  color: #2874f0;
+  background: #eff6ff;
+  transform: translateX(4px);
+}
+
+.category-link.activeCategory {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #2874f0, #0052cc) !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+}
+
+.filterBox > fieldset {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+}
+
+.paginationBox {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  gap: 6px;
+}
+
+.page-item {
+  background-color: #ffffff;
+  list-style: none;
+  border: 1.5px solid #e2e8f0;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.page-link {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.page-item:hover {
+  background-color: #2874f0;
+  border-color: #2874f0;
+}
+
+.page-item:hover .page-link {
+  color: #ffffff;
+}
+
+.pageItemActive {
+  background-color: #2874f0;
+  border-color: #2874f0;
+}
+
+.pageLinkActive {
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 768px) {
+  .productsPageContainer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .filterBox {
+    width: 100%;
+  }
+}

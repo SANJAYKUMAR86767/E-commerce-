@@ -1,0 +1,145 @@
+/* ═════════════════════════════════════════════════════════════
+   TRENDING PRODUCTS SHOWCASE STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.trendingSectionWrap {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.trendingHeaderBanner {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #0052cc 100%);
+  border: 2px solid #64b5f6;
+  border-radius: 20px;
+  padding: 1.6rem 2rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 35px rgba(40, 116, 240, 0.25);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.trendingHeaderLeft {
+  flex: 1;
+  min-width: 280px;
+}
+
+.trendingLiveTag {
+  background: #ffe500;
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.trendingTitle {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0.6rem 0 0.2rem;
+  color: #ffffff;
+}
+
+.trendingSub {
+  font-size: 0.9rem;
+  opacity: 0.92;
+  margin: 0;
+}
+
+.trendingHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.trendingNavBtnBox {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.trendingArrowBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.trendingArrowBtn:hover {
+  background: #ffe500;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+.trendingCountPill {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+}
+
+/* Category Filter Pills */
+.trendingFilterPillsBar {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.8rem;
+  scrollbar-width: none;
+}
+.trendingFilterPillsBar::-webkit-scrollbar { display: none; }
+
+.trendingPillBtn {
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  color: #212121;
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.trendingPillBtn:hover, .trendingPillBtn.active {
+  background: #1e3c72;
+  color: #ffffff;
+  border-color: #2874f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(40, 116, 240, 0.3);
+}
+
+/* CAROUSEL CONTAINER */
+.trendingCarouselContainer {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  scrollbar-width: none;
+}
+.trendingCarouselContainer::-webkit-scrollbar { display: none; }

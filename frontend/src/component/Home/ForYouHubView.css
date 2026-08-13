@@ -1,0 +1,2255 @@
+/* ════════════════════════════════════════════════════════════
+   FOR YOU HUB - PREMIUM HOME PAGE REDESIGN (MEGA EXPANDED)
+════════════════════════════════════════════════════════════ */
+
+.forYouHubContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 0 80px; /* Space for sticky nav */
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+/* ── ANIMATIONS ── */
+.fy-animate-1 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0s both; }
+.fy-animate-2 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s both; }
+.fy-animate-3 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s both; }
+.fy-animate-4 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s both; }
+.fy-animate-5 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s both; }
+.fy-animate-6 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s both; }
+.fy-animate-7 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s both; }
+.fy-animate-8 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.7s both; }
+
+@keyframes fyFadeUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fyFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fyPopIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fyFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes fyGlowPulse {
+  0% { box-shadow: 0 0 20px rgba(0, 245, 212, 0.4); }
+  50% { box-shadow: 0 0 50px rgba(0, 245, 212, 0.8); }
+  100% { box-shadow: 0 0 20px rgba(0, 245, 212, 0.4); }
+}
+
+@keyframes fyPulseWhite {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* ── LIVE TICKER ── */
+.fy-ticker-bar {
+  background: linear-gradient(90deg, #ff007f, #7928ca);
+  color: white;
+  padding: 12px 0;
+  overflow: hidden;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.fy-ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: fyTicker 35s linear infinite;
+}
+
+@keyframes fyTicker {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ── NOTIFICATION PILL (TOP FIXED) ── */
+.fy-live-notification-pill {
+  position: fixed;
+  top: 85px; /* Moved down to avoid hiding Login/Navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 12, 41, 0.85);
+  backdrop-filter: blur(15px);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 0.85rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: fyPopIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s both;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.fy-live-notification-pill:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,245,212,0.3);
+  border-color: rgba(0,245,212,0.5);
+}
+
+.fy-live-dot {
+  width: 8px;
+  height: 8px;
+  background: #00f5d4;
+  border-radius: 50%;
+  animation: fyPulse 1s infinite;
+}
+
+@keyframes fyPulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* ── WELCOME BANNER ── */
+.fy-welcome-banner {
+  padding: 10px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fy-welcome-text h2 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #111;
+}
+
+.fy-welcome-text p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.fy-user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00f5d4, #2874f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+  box-shadow: 0 5px 15px rgba(40,116,240,0.3);
+  cursor: pointer;
+}
+
+/* ── TRENDING SEARCHES ── */
+.fy-trending-searches {
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 5px;
+}
+
+.fy-search-pill {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #444;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fy-search-pill:hover {
+  background: #f1f5ff;
+  border-color: #2874f0;
+  color: #2874f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(40,116,240,0.1);
+}
+
+/* ── BRAND STORIES (INSTAGRAM STYLE) ── */
+.fy-stories-container {
+  display: flex;
+  gap: 15px;
+  padding: 0 20px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fy-story-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.fy-story-ring {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #00f5d4, #2874f0);
+  background-size: 300% 300%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: ringGradient 4s ease infinite;
+  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.2);
+}
+
+@keyframes ringGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.fy-story-item:hover .fy-story-ring {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.5);
+}
+
+.fy-story-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+}
+
+.fy-story-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* ── HERO CAROUSEL ── */
+.fy-hero-carousel {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  margin: 0 20px;
+}
+
+.fy-hero-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.fy-hero-slide.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.fy-hero-content {
+  flex: 1;
+  color: white;
+  max-width: 550px;
+}
+
+.fy-hero-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.fy-hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 15px;
+  text-shadow: 2px 4px 20px rgba(0,0,0,0.4);
+  letter-spacing: -1px;
+}
+
+.fy-hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.9);
+  margin: 0 0 15px;
+  font-weight: 500;
+}
+
+.fy-hero-bank-offer {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: rgba(255,255,255,0.15);
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+
+.fy-hero-cta {
+  padding: 15px 35px;
+  background: transparent;
+  border: 3px solid;
+  border-radius: 35px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fy-hero-cta:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.fy-hero-img-box {
+  width: 400px;
+  height: 320px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.fy-hero-img-box::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.fy-hero-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.fy-hero-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.fy-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-dot.active {
+  width: 35px;
+  border-radius: 5px;
+  background: white;
+}
+
+/* ── SECTION HEADING ── */
+.fy-section-heading {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fy-section-heading span {
+  background: linear-gradient(90deg, #111, #444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fy-view-all-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2874f0;
+  cursor: pointer;
+  -webkit-text-fill-color: #2874f0;
+}
+
+/* ── RAKHI SPECIALS (3D ADVANCED DESIGN) ── */
+.fy-occ-block {
+  margin: 0 20px;
+  background: linear-gradient(135deg, #fce4ec 0%, #fff 100%);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(233,30,99,0.08), inset 0 0 0 2px rgba(255,255,255,0.5);
+  border: 1px solid rgba(233,30,99,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.fy-occ-block::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(233,30,99,0.05) 0%, transparent 50%);
+  animation: spinSlow 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- BRAND COLLECTION MODAL --- */
+.fy-brand-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fyFadeIn 0.3s ease;
+}
+
+.fy-brand-modal-content {
+  background: white;
+  width: 95%;
+  max-width: 800px;
+  border-radius: 24px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.fy-brand-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #888;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f5f5f5;
+  transition: all 0.3s;
+}
+
+.fy-brand-modal-close:hover {
+  background: #ff4757;
+  color: white;
+}
+
+.fy-brand-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.fy-brand-modal-header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff4757;
+  padding: 3px;
+}
+
+.fy-brand-modal-header h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 5px;
+  color: #111;
+}
+
+.fy-brand-modal-header p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ff4757;
+  margin: 0;
+}
+
+.fy-brand-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.fy-brand-item-card {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.fy-brand-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.fy-brand-item-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.fy-brand-item-info {
+  padding: 15px;
+}
+
+.fy-brand-item-info h4 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fy-brand-item-pricing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.fy-brand-item-pricing .price {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.fy-brand-item-pricing .old-price {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.fy-brand-item-pricing .discount {
+  color: #ff4757;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: #ffe3e6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.fy-brand-item-btn {
+  width: 100%;
+  padding: 10px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.fy-brand-item-btn:hover {
+  background: #ff4757;
+}
+
+.fy-occ-header, .fy-occ-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.fy-occ-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 25px;
+}
+
+.fy-occ-header h3 {
+  margin: 0 0 5px;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #c2185b;
+}
+
+.fy-occ-header p {
+  margin: 0;
+  color: #888;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.fy-view-all-btn {
+  padding: 10px 25px;
+  background: #c2185b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(194,24,91,0.3);
+  transition: transform 0.2s;
+}
+
+.fy-view-all-btn:hover {
+  transform: scale(1.05);
+}
+
+.fy-occ-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.fy-occ-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  /* 3D Perspective Setup */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+.fy-occ-card:hover {
+  transform: translateY(-10px) rotateX(10deg) rotateY(-5deg);
+  box-shadow: -15px 25px 40px rgba(194,24,91,0.2);
+}
+
+.fy-occ-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(90deg, #ff007f, #c2185b);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 12px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(255,0,127,0.3);
+  transform: translateZ(30px); /* 3D float */
+}
+
+.fy-occ-img-wrapper {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fy-occ-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.fy-occ-card:hover .fy-occ-img-wrapper img {
+  transform: scale(1.15);
+}
+
+.fy-occ-info {
+  padding: 15px;
+  transform: translateZ(20px); /* 3D float */
+  background: white;
+}
+
+.fy-occ-info h4 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.fy-occ-info p {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  color: #c2185b;
+  font-weight: 900;
+}
+
+.fy-gift-btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #ff007f, #c2185b);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255,0,127,0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.fy-gift-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(255,0,127,0.5);
+}
+
+
+/* ── SHOP THE LOOK (HOTSPOTS) ── */
+.fy-shop-look-container {
+  margin: 0 20px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  height: 450px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.fy-shop-look-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fy-hotspot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: fyPulseWhite 2s infinite;
+  z-index: 5;
+}
+
+.fy-hotspot::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #111;
+  border-radius: 50%;
+}
+
+.fy-hotspot-card {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 220px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-hotspot:hover .fy-hotspot-card {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+
+.fy-hotspot-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.fy-hc-info { flex: 1; }
+.fy-hc-title { font-size: 0.8rem; font-weight: 800; color: #111; margin-bottom: 3px; line-height: 1.1; }
+.fy-hc-price { font-size: 0.95rem; font-weight: 900; color: #f26f21; }
+
+
+/* ── HOLOGRAPHIC MEGA BANNER (SUPER DESIGNING) ── */
+.fy-holographic-banner {
+  margin: 0 20px;
+  border-radius: 24px;
+  height: 350px;
+  background: linear-gradient(120deg, #1c1c1c, #2a2a2a, #111);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.fy-holo-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0,245,212,0.2) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255,0,127,0.2) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.fy-holo-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 500px;
+}
+
+.fy-holo-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #fff, #00f5d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fy-holo-btn {
+  padding: 12px 30px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.fy-holo-btn:hover {
+  background: white;
+  color: #111;
+  transform: scale(1.05);
+}
+
+.fy-holo-img-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  height: 300px;
+}
+
+.fy-holo-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: fyFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+}
+
+.fy-holo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  background: #00f5d4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  z-index: -1;
+  animation: fyGlowPulse 3s infinite;
+}
+
+/* ── SHOPPABLE VIDEO SHORTS (REELS STYLE) ── */
+.fy-shorts-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 20px 20px;
+}
+
+.fy-short-card {
+  min-width: 180px;
+  height: 320px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.fy-short-card:hover { transform: translateY(-8px); }
+
+.fy-short-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.fy-short-card:hover img { transform: scale(1.1); }
+
+.fy-short-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 60%);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.fy-short-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fy-short-card:hover .fy-short-play-btn { opacity: 1; }
+
+.fy-short-views {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fy-short-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+/* ── FLASH SALE ── */
+.fy-flash-sale {
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  border-radius: 24px;
+  padding: 30px;
+  margin: 0 20px;
+  box-shadow: 0 15px 40px rgba(15,32,39,0.2);
+}
+
+.fy-flash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.fy-flash-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #00f5d4;
+  margin-right: 15px;
+  text-shadow: 0 2px 10px rgba(0, 245, 212, 0.3);
+}
+
+.fy-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fy-timer-block {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 12px;
+  padding: 10px 15px;
+  text-align: center;
+  min-width: 65px;
+}
+
+.fy-timer-block span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.fy-colon {
+  color: #00f5d4;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.fy-flash-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 15px;
+}
+
+.fy-flash-card {
+  min-width: 240px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.fy-flash-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0,245,212,0.2);
+}
+
+.fy-flash-img-box {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #f1f1f1;
+}
+
+.fy-flash-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.fy-flash-card:hover .fy-flash-img-box img { transform: scale(1.15); }
+
+.fy-discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ff007f;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 900;
+  padding: 5px 12px;
+  border-radius: 8px;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(255,0,127,0.3);
+}
+
+.fy-flash-info { padding: 18px; }
+
+.fy-flash-brand {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #2874f0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+
+.fy-flash-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fy-flash-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.fy-flash-price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #111;
+}
+
+.fy-flash-old {
+  font-size: 0.95rem;
+  color: #888;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.fy-add-bag-btn {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.fy-add-bag-btn:hover {
+  background: #2874f0;
+  box-shadow: 0 6px 15px rgba(40,116,240,0.3);
+}
+
+/* ── CATEGORY GRID ── */
+.fy-category-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 20px 20px;
+}
+
+.fy-cat-tile {
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.fy-cat-tile:hover { transform: translateY(-10px); }
+
+.fy-cat-img-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 4px solid white;
+}
+
+.fy-cat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.fy-cat-tile:hover .fy-cat-img-wrap img { transform: scale(1.2); }
+
+.fy-cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fy-cat-tile:hover .fy-cat-overlay { opacity: 1; }
+
+.fy-cat-name {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #111;
+}
+
+.fy-cat-offer {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #ff007f;
+  background: #fff0f6;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* ── GAMIFICATION PROMO (SPIN & WIN) ── */
+.fy-gamification-banner {
+  margin: 0 20px;
+  background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 15px 30px rgba(255,154,158,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.fy-gamification-banner::before {
+  content: '🎉';
+  font-size: 8rem;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  opacity: 0.2;
+  transform: rotate(15deg);
+}
+
+.fy-game-content h3 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111;
+}
+
+.fy-game-content p {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #444;
+}
+
+.fy-play-btn {
+  background: #111;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fy-play-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.fy-wheel-img {
+  font-size: 5rem;
+  animation: spinSlow 10s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── CIRCULAR BRANDS CAROUSEL ── */
+.fy-brand-carousel {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 10px 20px 25px;
+}
+
+.fy-brand-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  min-width: 110px;
+}
+
+.fy-brand-img-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+}
+
+.fy-brand-item:hover .fy-brand-img-wrap {
+  transform: translateY(-8px) scale(1.05);
+  border-color: #f26f21;
+  box-shadow: 0 15px 35px rgba(242,111,33,0.2);
+}
+
+.fy-brand-img-wrap img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.fy-brand-name {
+  font-weight: 900;
+  font-size: 1rem;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.fy-brand-offer {
+  font-size: 0.75rem;
+  color: #ff007f;
+  font-weight: 800;
+}
+
+/* ── BANK OFFERS STRIP ── */
+.fy-bank-strip {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 20px;
+  margin: 15px 0;
+}
+
+.fy-bank-card {
+  min-width: 320px;
+  background: white;
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-left: 5px solid #2874f0;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.fy-bank-card:hover {
+  transform: translateY(-4px);
+}
+
+.fy-bank-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.fy-bank-text h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: #111;
+  font-weight: 800;
+}
+
+.fy-bank-text p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 600;
+}
+
+/* ── SUGGESTED FOR YOU (INFINITE GRID) ── */
+.fy-suggested-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.fy-suggested-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-suggested-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.fy-suggested-img {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fy-suggested-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.fy-suggested-card:hover .fy-suggested-img img { transform: scale(1.1); }
+
+.fy-suggested-info { padding: 15px; }
+
+.fy-suggested-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fy-suggested-price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.fy-suggested-price {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #111;
+}
+
+.fy-suggested-old {
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.fy-suggested-discount {
+  font-size: 0.75rem;
+  color: #00b894;
+  font-weight: 900;
+}
+
+.fy-suggested-quickview-btn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(0,0,0,0.05);
+  border: none;
+  border-radius: 8px;
+  font-weight: 800;
+  color: #111;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.fy-suggested-quickview-btn:hover {
+  background: #111;
+  color: white;
+}
+
+/* ── QUICK VIEW MODAL (PROPER WORKING FEATURE) ── */
+.fy-quickview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fyFadeIn 0.3s forwards;
+}
+
+.fy-quickview-modal {
+  background: white;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  animation: fyPopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  position: relative;
+}
+
+.fy-quickview-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  background: #f1f1f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.fy-quickview-close:hover { background: #e0e0e0; }
+
+.fy-qv-image {
+  flex: 1;
+  background: #f8f9fa;
+}
+
+.fy-qv-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fy-qv-details {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fy-qv-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.fy-qv-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.fy-qv-price { font-size: 2.2rem; font-weight: 900; color: #111; }
+.fy-qv-oldprice { font-size: 1.1rem; color: #999; text-decoration: line-through; }
+.fy-qv-discount { color: #00b894; font-weight: 800; font-size: 1rem; }
+
+.fy-qv-subtitle { font-weight: 800; margin-bottom: 10px; color: #333; }
+
+.fy-qv-variants {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.fy-qv-var {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.fy-qv-var:hover, .fy-qv-var.active {
+  border-color: #111;
+  background: #111;
+  color: white;
+}
+
+.fy-qv-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.fy-qv-add {
+  flex: 1;
+  padding: 15px;
+  background: #2874f0;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fy-qv-add:hover { background: #1c5ebd; }
+
+.fy-qv-wishlist {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.fy-qv-wishlist:hover { border-color: #ff007f; color: #ff007f; }
+
+@media (max-width: 768px) {
+  .fy-quickview-modal { flex-direction: column; }
+  .fy-qv-image { height: 300px; }
+  .fy-qv-details { padding: 25px; }
+}
+
+/* ── LIVE SHOPPING / VIDEOS ── */
+.fy-live-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 20px 20px;
+}
+
+.fy-live-card {
+  min-width: 300px;
+  height: 450px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: transform 0.4s;
+}
+
+.fy-live-card:hover { transform: scale(1.03); }
+
+.fy-live-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fy-live-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ff0000;
+  color: white;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: pulseLive 2s infinite;
+}
+
+.fy-live-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 20px 20px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+  color: white;
+}
+
+/* ── BUDGET STORE ── */
+.fy-budget-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.fy-budget-card {
+  position: relative;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-budget-card:hover { transform: translateY(-10px); }
+
+.fy-budget-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s;
+}
+
+.fy-budget-card:hover img { transform: scale(1.1); }
+
+.fy-budget-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 80%);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* ── STICKY BOTTOM NAV (Mobile App Feel) ── */
+.fy-sticky-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  z-index: 100;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+}
+
+.fy-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.fy-nav-item:hover, .fy-nav-item.active {
+  color: #2874f0;
+}
+
+.fy-nav-item span { font-size: 1.5rem; }
+.fy-nav-item small { font-size: 0.75rem; font-weight: 800; }
+
+/* ── FLOATING CART BUTTON ── */
+.fy-floating-cart {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, #f26f21, #e91e63);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  box-shadow: 0 10px 30px rgba(233,30,99,0.4);
+  cursor: pointer;
+  z-index: 99;
+  transition: transform 0.3s;
+}
+
+.fy-floating-cart:hover { transform: scale(1.1) rotate(5deg); }
+
+.fy-cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #111;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 900;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+/* ── FLOATING ACTION MENU (SPEED DIAL) ── */
+.fy-speed-dial {
+  position: fixed;
+  bottom: 90px;
+  left: 30px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 15px;
+}
+
+.fy-sd-main {
+  width: 60px;
+  height: 60px;
+  background: #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-speed-dial:hover .fy-sd-main {
+  transform: rotate(45deg);
+  background: #2874f0;
+}
+
+.fy-sd-items {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-speed-dial:hover .fy-sd-items {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.fy-sd-item {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #111;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.fy-sd-item:hover {
+  transform: scale(1.1);
+  background: #f1f1f1;
+}
+
+.fy-sd-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 100%;
+  margin-left: 15px;
+  background: #111;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.fy-sd-item:hover::after {
+  opacity: 1;
+}
+
+/* ── SPOTLIGHT GRID (GLASSMORPHIC) ── */
+.fy-spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 20px 20px;
+}
+
+.fy-spotlight-card {
+  position: relative;
+  height: 350px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transform: perspective(1000px) rotateX(0deg);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-spotlight-card:hover {
+  transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.fy-spotlight-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.fy-spotlight-card:hover img {
+  transform: scale(1.15);
+}
+
+.fy-spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #111 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+}
+
+.fy-spotlight-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.fy-spotlight-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.fy-spotlight-offer {
+  color: #00f5d4;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+/* ── TOP PICKS ROWS (NEUMORPHIC / PREMIUM) ── */
+.fy-top-picks-section {
+  margin: 0 20px;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.fy-top-picks-header {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.fy-top-picks-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 20px;
+}
+
+.fy-top-pick-card {
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.fy-top-pick-card:hover {
+  transform: translateY(-8px);
+  background: white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.fy-pick-img-wrap {
+  width: 100%;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f1f1;
+}
+
+.fy-pick-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.fy-top-pick-card:hover .fy-pick-img-wrap img {
+  transform: scale(1.1);
+}
+
+.fy-pick-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fy-pick-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #2874f0;
+}
+
+.fy-pick-btn {
+  padding: 10px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fy-pick-btn:hover {
+  background: #2874f0;
+}
+
+/* ── MEGA SALE FULLSCREEN MODAL (SUPER ADVANCED) ── */
+.fy-megasale-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fyFadeIn 0.4s forwards;
+  padding: 40px;
+}
+
+.fy-megasale-modal {
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+  border-radius: 30px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.2);
+  animation: fyPopIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  scrollbar-width: none;
+}
+
+.fy-megasale-close {
+  position: sticky;
+  top: 20px;
+  right: 20px;
+  float: right;
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+}
+
+.fy-megasale-close:hover {
+  background: white;
+  color: #111;
+  transform: rotate(90deg);
+}
+
+.fy-megasale-header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  color: white;
+}
+
+.fy-megasale-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background: linear-gradient(90deg, #fff, #00f5d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fy-megasale-header p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+}
+
+.fy-megasale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 0 40px 60px;
+}
+
+.fy-megasale-card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fy-megasale-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.fy-ms-imgbox {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.fy-ms-imgbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.6s ease;
+}
+
+.fy-megasale-card:hover .fy-ms-imgbox img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.fy-ms-badge {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: #00f5d4;
+  color: #111;
+  font-weight: 900;
+  padding: 6px 14px;
+  border-radius: 20px;
+  z-index: 10;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 15px rgba(0,245,212,0.4);
+}
+
+.fy-ms-info {
+  padding: 25px;
+}
+
+.fy-ms-info h4 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.fy-ms-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.fy-ms-price {
+  color: #00f5d4;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.fy-ms-old {
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.fy-ms-buybtn {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  color: #111;
+  border: none;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.fy-ms-buybtn:hover {
+  background: #00f5d4;
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,245,212,0.3);
+}

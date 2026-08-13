@@ -1,0 +1,133 @@
+.paymentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  height: 65vh;
+  margin: 2vmax;
+}
+
+.paymentForm {
+  background-color: white;
+  width: 25vw;
+  box-sizing: border-box;
+  padding: 3vmax;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.paymentForm > p {
+  font: 400 2vmax "Roboto";
+  color: #5f259f;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  padding: 1vmax 0;
+  text-align: center;
+  margin: auto;
+  width: 90%;
+  margin-bottom: 2vmax;
+}
+
+.upi-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vmax;
+}
+
+.upi-qr-code {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 4px solid #5f259f;
+  padding: 5px;
+}
+
+.upi-id-text {
+  font: 500 1vmax "Roboto";
+  margin-top: 1vmax;
+  color: #333;
+}
+
+.upi-instructions {
+  font: 400 0.8vmax "Roboto";
+  color: #666;
+  text-align: center;
+  margin-top: 1vmax;
+  line-height: 1.5;
+}
+
+.paymentForm > div {
+  display: flex;
+  align-items: center;
+  margin: 2vmax 0;
+}
+
+.paymentForm > div > svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 1.6vmax;
+  color: rgba(0, 0, 0, 0.623);
+}
+
+.paymentInput {
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.267);
+  border-radius: 8px;
+  outline: none;
+  font: 300 1vmax "Roboto";
+}
+
+.paymentFormBtn {
+  border: none;
+  background-color: #5f259f;
+  color: white;
+  font: 500 1vmax "Roboto";
+  width: 100%;
+  padding: 1vmax;
+  cursor: pointer;
+  transition: all 0.3s;
+  outline: none;
+  border-radius: 8px;
+  margin-top: 1vmax;
+}
+
+.paymentFormBtn:hover {
+  background-color: #4a1d7c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(95, 37, 159, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+  .paymentForm {
+    width: 90vw;
+  }
+  .paymentForm > p {
+    font: 400 6vw "Roboto";
+  }
+  .paymentForm > div > svg {
+    font-size: 5vw;
+  }
+  .paymentInput {
+    padding: 3vw 10vw;
+    font: 300 3vw "Roboto";
+  }
+  .paymentFormBtn {
+    font: 500 3vw "Roboto";
+    padding: 3vw;
+  }
+  .upi-qr-code {
+    width: 150px;
+    height: 150px;
+  }
+  .upi-id-text {
+    font: 500 3vw "Roboto";
+  }
+  .upi-instructions {
+    font: 400 2.5vw "Roboto";
+  }
+}

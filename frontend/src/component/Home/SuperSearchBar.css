@@ -1,0 +1,176 @@
+/* ═════════════════════════════════════════════════════════════
+   ULTRA-SEXY MEGA SEARCH BAR STYLING (Better than Amazon/Flipkart)
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.superSearchWrapper {
+  max-width: 1280px;
+  margin: 1rem auto 1.8rem;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.superSearchForm {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  padding: 0.35rem 0.35rem 0.35rem 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  gap: 0.5rem;
+}
+
+.superSearchForm:focus-within {
+  border-color: #2874f0;
+  box-shadow: 0 14px 40px rgba(40, 116, 240, 0.25);
+  transform: translateY(-2px);
+}
+
+.superCatSelect {
+  border: none;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.superInputContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 0.6rem;
+  padding: 0 0.5rem;
+}
+
+.superSearchLensIcon {
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+.superSearchInput {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+  outline: none;
+}
+.superSearchInput::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.superClearBtn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 0.4rem;
+}
+.superClearBtn:hover { color: #ef4444; }
+
+.superVoiceBtn {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2874f0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.superVoiceBtn.listening {
+  background: #ff3e6c;
+  color: #ffffff;
+  border-color: #ff3e6c;
+  animation: pulseMic 1s infinite alternate;
+}
+
+@keyframes pulseMic {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(255, 62, 108, 0.4); }
+  100% { transform: scale(1.15); box-shadow: 0 0 14px rgba(255, 62, 108, 0.8); }
+}
+
+.superSubmitBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #2874f0 0%, #0052cc 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(40, 116, 240, 0.35);
+  transition: all 0.25s ease;
+}
+
+.superSubmitBtn:hover {
+  opacity: 0.95;
+  transform: scale(1.03);
+}
+
+.superSubmitArrow {
+  font-size: 1.1rem;
+}
+
+/* Trending Pills */
+.superTrendingPillsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+  padding: 0 0.5rem;
+}
+
+.superTrendingLabel {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.superTagsScroll {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.superTagsScroll::-webkit-scrollbar { display: none; }
+
+.superTagPill {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.superTagPill:hover {
+  background: #2874f0;
+  color: #ffffff;
+  border-color: #2874f0;
+  transform: translateY(-2px);
+}

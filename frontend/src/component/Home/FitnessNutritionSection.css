@@ -1,0 +1,334 @@
+/* ═════════════════════════════════════════════════════════════
+   FITNESS & HEALTH NUTRITION STORE 3D STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.fitnessSectionContainer {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.fitnessHeaderBanner {
+  background: linear-gradient(135deg, #1b2838 0%, #2a475e 50%, #4f709c 100%);
+  border: 2px solid #669bbc;
+  border-radius: 20px;
+  padding: 1.6rem 2rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 35px rgba(27, 40, 56, 0.35);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.fitnessLiveTag {
+  background: linear-gradient(135deg, #00c853, #00e676);
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.fitnessHeading {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0.6rem 0 0.2rem;
+  color: #fdf0d5;
+}
+
+.fitnessSub {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.92;
+}
+
+.fitnessNavArrowBox {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.fitnessNavArrowBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.fitnessNavArrowBtn:hover {
+  background: #00c853;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+.fitnessTotalBadge {
+  background: linear-gradient(135deg, #00c853, #009624);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* HORIZONTAL BRAND PILL NAV */
+.fitnessNavWrapper {
+  margin-bottom: 1.8rem;
+}
+
+.fitnessNavScroll {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  scrollbar-width: none;
+}
+.fitnessNavScroll::-webkit-scrollbar { display: none; }
+
+.fitnessBrandPill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #e0e0e0;
+  background: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.fitnessBrandPill:hover, .fitnessBrandPill.active {
+  background: #1b2838;
+  color: #ffffff;
+  border-color: #00c853;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(27, 40, 56, 0.3);
+}
+
+.fitnessPillImgBox {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fitnessPillImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fitnessPillLabel {
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+/* 3D CAROUSEL CONTAINER */
+.fitness3DCarousel {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.fitness3DCarousel::-webkit-scrollbar { display: none; }
+
+.fitness3DProductCard {
+  width: 260px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.fitness3DProductCard:hover {
+  transform: translateY(-8px) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(0, 200, 83, 0.25);
+  border-color: #00c853;
+}
+
+.fitness3DImgBox {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: radial-gradient(circle at center, #ffffff 0%, #f0fdf4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.fitness3DCardImg {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.15));
+  transition: transform 0.35s ease;
+}
+
+.fitness3DProductCard:hover .fitness3DCardImg {
+  transform: scale(1.08) translateZ(10px);
+}
+
+.fitnessDiscountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #00c853;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.fitnessBadgeTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(27, 40, 56, 0.9);
+  color: #00e676;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.fitness3DCardBody {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.fitnessCategoryText {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #009624;
+  margin-bottom: 0.2rem;
+}
+
+.fitness3DItemTitle {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fitnessSpecsChip {
+  font-size: 0.74rem;
+  color: #1b2838;
+  font-weight: 700;
+  background: #e8f5e9;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fitnessRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.fitnessReviewsText {
+  font-size: 0.78rem;
+  color: #878787;
+}
+
+.fitnessPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.fitnessPriceCurrent {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #1b2838;
+}
+
+.fitnessPriceMrp {
+  font-size: 0.85rem;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.fitnessCardBtnRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.fitnessAddToCartBtn {
+  flex: 1;
+  padding: 0.6rem;
+  background: #00c853;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.fitnessAddToCartBtn:hover {
+  transform: scale(1.03);
+  background: #00a844;
+}
+
+.fitnessBuyNowBtn {
+  flex: 1;
+  padding: 0.6rem;
+  background: #fb641b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.fitnessBuyNowBtn:hover {
+  transform: scale(1.03);
+  background: #e0530b;
+}

@@ -1,0 +1,213 @@
+/* ════════════════════════════════════════════════════════════
+   GLOBAL FLIPKART HEADER
+════════════════════════════════════════════════════════════ */
+
+.fk-header-container {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.fk-header-inner {
+  max-width: 1248px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 30px;
+}
+
+/* ── 1. LOGO ── */
+.fk-logo-box {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  min-width: 130px;
+}
+
+.fk-logo-box img {
+  height: 40px;
+}
+
+/* ── 2. SEARCH BAR ── */
+.fk-search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #f0f5ff; /* Light blue tint */
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 40px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.fk-search-box:focus-within {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #2874f0;
+}
+
+.fk-search-icon {
+  color: #717478;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.fk-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* ── 3. NAV ACTIONS (Login, More, Cart) ── */
+.fk-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.fk-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.fk-nav-item:hover {
+  background-color: #2874f010; /* Very light blue on hover */
+}
+
+.fk-nav-item-icon {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.fk-nav-item-text {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.fk-dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s;
+}
+
+.fk-nav-item:hover .fk-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* ── 4. DROPDOWN MENUS ── */
+.fk-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,.1);
+  border: 1px solid #e0e0e0;
+  width: 280px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+/* Show dropdown on hover */
+.fk-nav-item:hover .fk-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Small up arrow pointer on dropdown */
+.fk-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.fk-dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 5px;
+}
+
+.fk-dropdown-header span {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.fk-dropdown-header a {
+  color: #2874f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fk-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.fk-dropdown-item:hover {
+  background-color: #f5f8ff;
+}
+
+.fk-dropdown-item-icon {
+  font-size: 1.1rem;
+  color: #2874f0;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .fk-nav-item-text, .fk-dropdown-arrow {
+    display: none;
+  }
+  .fk-dropdown-menu {
+    left: auto;
+    right: 0;
+    transform: translateY(10px);
+  }
+  .fk-nav-item:hover .fk-dropdown-menu {
+    transform: translateY(0);
+  }
+  .fk-dropdown-menu::before {
+    left: auto;
+    right: 15px;
+  }
+}

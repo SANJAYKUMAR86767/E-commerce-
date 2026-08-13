@@ -1,0 +1,34 @@
+/* ═══════════════════════════════════════════════════════════════
+   ELECTRONICS STORE THEME
+═══════════════════════════════════════════════════════════════ */
+.elSection { max-width: 1280px; margin: 2.5rem auto; padding: 0 1rem; font-family: 'Inter', sans-serif; }
+.elHeader { display: flex; justify-content: space-between; align-items: flex-end; background: linear-gradient(135deg, #1e3a8a, #312e81); padding: 1.5rem 2rem; border-radius: 16px; color: #fff; margin-bottom: 1.5rem; }
+.elLiveChip { background: #14b8a6; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; display: inline-block; margin-bottom: 0.5rem; }
+.elBanTitle { font-size: 1.8rem; font-weight: 900; margin: 0 0 0.3rem; }
+.elBanSub { font-size: 0.9rem; color: #a5b4fc; margin: 0; }
+.elNavRow { display: flex; gap: 0.5rem; }
+.elNavBtn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-weight: bold; transition: all 0.2s; }
+.elNavBtn:hover { background: #14b8a6; transform: scale(1.1); }
+
+.elCarousel { display: flex; gap: 1.3rem; overflow-x: auto; padding: 1rem 0.5rem 2rem; perspective: 1000px; scrollbar-width: none; }
+.elCarousel::-webkit-scrollbar { display: none; }
+.elCard { min-width: 280px; max-width: 280px; flex-shrink: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+.elCard:hover { transform: translateY(-8px); box-shadow: 0 16px 32px rgba(0,0,0,0.1); border-color: #cbd5e1; }
+.elCardImgBox { width: 100%; height: 220px; position: relative; background: #f8fafc; overflow: hidden; display: flex; justify-content: center; align-items: center;}
+.elCardImg { width: 100%; height: 100%; object-fit: contain; padding: 1rem; transition: transform 0.4s; }
+.elCard:hover .elCardImg { transform: scale(1.08); }
+.elDiscChip { position: absolute; top: 10px; left: 10px; background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; }
+.elBadgeChip { position: absolute; bottom: 10px; right: 10px; background: rgba(30,58,138,0.85); color: #67e8f9; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 12px; }
+
+.elCardBody { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; }
+.elBrandLabel { font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; }
+.elCardTitle { font-size: 0.95rem; font-weight: 800; margin: 0; color: #0f172a; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.elSpecsRow { font-size: 0.75rem; font-weight: 600; color: #334155; background: #f1f5f9; padding: 0.4rem; border-radius: 6px; }
+.elRatingRow { display: flex; align-items: center; gap: 0.5rem; }
+.elStars { color: #f59e0b; font-weight: 800; font-size: 0.9rem; }
+.elRevs { font-size: 0.75rem; color: #94a3b8; }
+.elPriceRow { display: flex; align-items: baseline; gap: 0.5rem; margin-top: auto;}
+.elPrice { font-size: 1.3rem; font-weight: 900; color: #0f172a; }
+.elMrp { font-size: 0.85rem; color: #94a3b8; text-decoration: line-through; }
+.elBtnBuy { margin-top: 0.8rem; background: #1e3a8a; color: #fff; border: none; padding: 0.7rem; border-radius: 8px; font-weight: 800; cursor: pointer; transition: background 0.2s; }
+.elBtnBuy:hover { background: #312e81; }

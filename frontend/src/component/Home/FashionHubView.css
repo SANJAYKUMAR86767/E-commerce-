@@ -1,0 +1,385 @@
+/* ════════════════════════════════════════════════════════════
+   FASHION HUB - PREMIUM DESIGN
+════════════════════════════════════════════════════════════ */
+
+.fashionHubContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 15px 40px;
+  background-color: #f1f3f6; /* Classic Flipkart grey background */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Animations */
+.fh-animate-1 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; opacity: 0; }
+.fh-animate-2 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards; opacity: 0; }
+.fh-animate-3 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards; opacity: 0; }
+.fh-animate-4 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s forwards; opacity: 0; }
+.fh-animate-5 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s forwards; opacity: 0; }
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── 0. LIVE TICKER ── */
+.fh-ticker-container {
+  background: #ff1493;
+  color: white;
+  padding: 8px 0;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.fh-ticker {
+  white-space: nowrap;
+  animation: ticker 20s linear infinite;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ── PREMIUM BRANDS MARQUEE ── */
+.fh-brands-marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: brandTicker 30s linear infinite;
+}
+
+@keyframes brandTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── FLOATING STYLIST BUTTON ── */
+.fh-stylist-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #111 0%, #333 100%);
+  color: white;
+  border: 2px solid #ff1493;
+  border-radius: 50px;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255,20,147,0.3);
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fh-stylist-btn:hover {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255,20,147,0.5);
+  background: linear-gradient(135deg, #ff1493 0%, #ff4500 100%);
+  border-color: white;
+}
+
+.fh-stylist-text {
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* ── 1. HERO BANNER GRID ── */
+.fh-hero-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 15px;
+  width: 100%;
+  height: 400px;
+}
+
+.fh-hero-main {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.fh-hero-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.fh-hero-main:hover img {
+  transform: scale(1.05);
+}
+
+.fh-hero-sub-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+}
+
+.fh-hero-sub {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.fh-hero-sub img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.fh-hero-sub:hover img {
+  transform: scale(1.05);
+}
+
+.fh-sub-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.fh-banner-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 50px;
+  color: white;
+}
+
+.fh-banner-overlay h2 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.fh-shop-now-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #ff1493;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255,20,147,0.4);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.fh-shop-now-btn:hover {
+  transform: scale(1.05);
+  background: #d10074;
+}
+
+/* ── HORIZONTAL PRODUCT ROW ── */
+.fh-product-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+/* ── GEN Z FASHION CARDS ── */
+.fh-trend-card {
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.fh-trend-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.fh-trend-img-box {
+  width: 100%;
+  height: 250px;
+}
+
+.fh-trend-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.fh-trend-card:hover .fh-trend-img-box img {
+  transform: scale(1.05);
+}
+
+.fh-trend-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.fh-trend-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.fh-trend-offer {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ff1493;
+  margin-top: 5px;
+}
+
+/* ── TOP 50 DEALS CARDS ── */
+.fh-deal-card {
+  min-width: 200px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.fh-deal-card:hover {
+  transform: translateY(-5px);
+}
+
+.fh-deal-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: #ff1493;
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.fh-deal-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.fh-deal-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.fh-deal-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.fh-deal-offer {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #111;
+  margin-top: 5px;
+}
+
+/* ── RAKHI TRENDS GRID ── */
+.fh-rakhi-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 15px 0;
+}
+
+.fh-rakhi-card {
+  min-width: 180px;
+  height: 250px;
+  border-radius: 100px 100px 10px 10px; /* Arch shape */
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 2px solid #e0e0e0;
+}
+
+.fh-rakhi-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.fh-rakhi-card:hover img {
+  transform: scale(1.1);
+}
+
+.fh-rakhi-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.9);
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #b8860b;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.fh-countdown {
+  background: rgba(255,255,255,0.1);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.fh-countdown span {
+  background: #ff1493;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin: 0 5px;
+}
+
+.fh-ar-btn {
+  padding: 8px 15px;
+  background: linear-gradient(45deg, #ffd700, #daa520);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(218,165,32,0.4);
+  transition: transform 0.2s;
+}
+
+.fh-ar-btn:hover {
+  transform: scale(1.05);
+}

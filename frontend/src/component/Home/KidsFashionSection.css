@@ -1,0 +1,304 @@
+/* ═════════════════════════════════════════════════════════════
+   KIDS & CHILDREN FASHION WEAR STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.kidsSectionWrap {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.kidsHeaderBanner {
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #115e59 100%);
+  border: 2px solid #5eead4;
+  border-radius: 20px;
+  padding: 1.6rem 2rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 35px rgba(13, 148, 136, 0.25);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.kidsHeaderLeft {
+  flex: 1;
+  min-width: 280px;
+}
+
+.kidsRoyalBadge {
+  background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.kidsTitle {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0.6rem 0 0.2rem;
+  color: #ccfbf1;
+}
+
+.kidsSub {
+  font-size: 0.9rem;
+  opacity: 0.92;
+  margin: 0;
+}
+
+.kidsHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.kidsSearchInput {
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #2dd4bf;
+  outline: none;
+  font-size: 0.85rem;
+  width: 220px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000000;
+  font-weight: 700;
+}
+
+.kidsNavBtnBox {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.kidsArrowBtn {
+  background: rgba(45, 212, 191, 0.2);
+  border: 1px solid #2dd4bf;
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.kidsArrowBtn:hover {
+  background: #0d9488;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.kidsCountPill {
+  background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+}
+
+/* Category Filter Pills */
+.kidsFilterPillsBar {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.8rem;
+  scrollbar-width: none;
+}
+.kidsFilterPillsBar::-webkit-scrollbar { display: none; }
+
+.kidsPillBtn {
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  color: #212121;
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.kidsPillBtn:hover, .kidsPillBtn.active {
+  background: #0f766e;
+  color: #ffffff;
+  border-color: #2dd4bf;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(13, 148, 136, 0.3);
+}
+
+/* CAROUSEL CONTAINER */
+.kidsCarouselContainer {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.kidsCarouselContainer::-webkit-scrollbar { display: none; }
+
+.kidsProductCard {
+  width: 250px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.kidsProductCard:hover {
+  transform: translateY(-8px) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(13, 148, 136, 0.25);
+  border-color: #2dd4bf;
+}
+
+.kidsProductCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(13, 148, 136, 0.3);
+  border-color: #2dd4bf;
+}
+
+.kidsImgContainer {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.kidsCardImg {
+  max-width: 88%;
+  max-height: 88%;
+  object-fit: contain;
+}
+
+.kidsDiscountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #0d9488;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.kidsBadgeTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 118, 110, 0.9);
+  color: #ccfbf1;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.kidsCardContent {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.kidsBrandName {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0f766e;
+  margin-bottom: 0.2rem;
+}
+
+.kidsItemTitle {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kidsRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.kidsStar {
+  color: #ff9f00;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.kidsReviews {
+  font-size: 0.78rem;
+  color: #878787;
+}
+
+.kidsPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.kidsPriceCurrent {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #0f766e;
+}
+
+.kidsPriceMrp {
+  font-size: 0.85rem;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.kidsAddCartBtn {
+  width: 100%;
+  padding: 0.65rem;
+  background: linear-gradient(135deg, #0d9488, #0f766e);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.kidsAddCartBtn:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+  color: #000000;
+}

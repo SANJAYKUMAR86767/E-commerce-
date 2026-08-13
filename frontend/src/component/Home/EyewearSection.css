@@ -1,0 +1,455 @@
+/* ═══════════════════════════════════════════════════════════════
+   EYEWEAR & SUNGLASSES STORE — PREMIUM DARK THEME
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.ewSection {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── HERO BANNER ── */
+.ewBanner {
+  background: linear-gradient(135deg, #0b0c10 0%, #1f2833 55%, #0b3d91 100%);
+  border: 2px solid #45a29e;
+  border-radius: 20px;
+  padding: 1.8rem 2.2rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  box-shadow: 0 14px 40px rgba(11, 61, 145, 0.4), 0 0 60px rgba(69, 162, 158, 0.1);
+  margin-bottom: 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ewBanner::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(69,162,158,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ewBannerLeft { flex: 1; min-width: 260px; }
+.ewBannerRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: flex-end;
+}
+
+.ewLiveChip {
+  display: inline-block;
+  background: linear-gradient(135deg, #45a29e, #0b3d91);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 0.28rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.ewBanTitle {
+  font-size: 1.7rem;
+  font-weight: 900;
+  margin: 0 0 0.35rem;
+  color: #c5c6c7;
+}
+
+.ewBanSub {
+  font-size: 0.88rem;
+  color: #a8aaac;
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.ewBanStats {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.ewStat {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.ewStatNum {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #66fcf1;
+}
+
+.ewStatLabel {
+  font-size: 0.68rem;
+  color: #a8aaac;
+  margin-top: 0.15rem;
+}
+
+.ewSearch {
+  padding: 0.7rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #45a29e;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  width: 260px;
+  background: #1f2833;
+  color: #c5c6c7;
+}
+
+.ewSearch::placeholder { color: #666c73; }
+
+.ewNavRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ewNavBtn {
+  background: rgba(69,162,158,0.18);
+  border: 1.5px solid #45a29e;
+  color: #66fcf1;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.ewNavBtn:hover {
+  background: #45a29e;
+  color: #0b0c10;
+  transform: scale(1.12);
+}
+
+.ewCountChip {
+  background: linear-gradient(135deg, #45a29e, #0b3d91);
+  color: #fff;
+  padding: 0.55rem 1.1rem;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* ── CATEGORY PILLS ── */
+.ewPillsBar {
+  display: flex;
+  gap: 0.7rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  scrollbar-width: none;
+}
+.ewPillsBar::-webkit-scrollbar { display: none; }
+
+.ewPill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 30px;
+  border: 1.5px solid #dce1e7;
+  background: #ffffff;
+  color: #212121;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.ewPill:hover,
+.ewPillActive {
+  background: #0b3d91;
+  color: #fff;
+  border-color: #45a29e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 61, 145, 0.35);
+}
+
+.ewPillIcon { font-size: 1rem; }
+.ewPillLabel { font-size: 0.9rem; font-weight: 800; }
+
+/* ── 3D CAROUSEL ── */
+.ewCarousel {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.25rem 1.4rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.ewCarousel::-webkit-scrollbar { display: none; }
+
+.ewEmpty {
+  font-size: 1rem;
+  color: #888;
+  padding: 3rem 2rem;
+  font-weight: 700;
+}
+
+/* ── PRODUCT CARD ── */
+.ewCard {
+  width: 265px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #e8edf2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.ewCard:hover {
+  transform: translateY(-10px) rotateY(-5deg);
+  box-shadow: 0 22px 50px rgba(11, 61, 145, 0.22);
+  border-color: #45a29e;
+}
+
+/* IMG BOX */
+.ewCardImgBox {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(ellipse at center, #e8f4f8 0%, #f5f9fc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ewCardImg {
+  max-width: 86%;
+  max-height: 86%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(0,0,0,0.16));
+  transition: transform 0.38s ease;
+}
+
+.ewCard:hover .ewCardImg {
+  transform: scale(1.1) translateZ(12px);
+}
+
+.ewDiscChip {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 900;
+  padding: 0.22rem 0.6rem;
+  border-radius: 4px;
+}
+
+.ewBadgeChip {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: rgba(11, 61, 145, 0.9);
+  color: #66fcf1;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+}
+
+/* HOVER OVERLAY BUTTONS */
+.ewCardOverlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(11,61,145,0.85) 0%, transparent 100%);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ewCard:hover .ewCardOverlay { opacity: 1; }
+
+.ewOverlayBtn,
+.ewOverlayBuy {
+  flex: 1;
+  padding: 0.45rem 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: 900;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ewOverlayBtn {
+  background: rgba(255,255,255,0.9);
+  color: #0b3d91;
+}
+
+.ewOverlayBuy {
+  background: #45a29e;
+  color: #fff;
+}
+
+.ewOverlayBtn:hover, .ewOverlayBuy:hover { transform: scale(1.04); }
+
+/* CARD BODY */
+.ewCardBody {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-grow: 1;
+}
+
+.ewBrandLabel {
+  font-size: 0.74rem;
+  font-weight: 900;
+  color: #0b3d91;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ewCardTitle {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.35;
+}
+
+.ewSpecsRow {
+  font-size: 0.73rem;
+  color: #0b3d91;
+  font-weight: 700;
+  background: #eef4fb;
+  padding: 0.32rem 0.6rem;
+  border-radius: 6px;
+  border-left: 3px solid #45a29e;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ewRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ewStars {
+  color: #ff9f00;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.ewRevs {
+  font-size: 0.77rem;
+  color: #888;
+}
+
+.ewPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.ewPrice {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #0b0c10;
+}
+
+.ewMrp {
+  font-size: 0.84rem;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.ewSaved {
+  font-size: 0.78rem;
+  color: #388e3c;
+  font-weight: 800;
+}
+
+.ewFreeTag {
+  font-size: 0.75rem;
+  color: #45a29e;
+  font-weight: 800;
+}
+
+.ewBtnRow {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.ewCartBtn,
+.ewBuyBtn {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ewCartBtn {
+  background: #0b3d91;
+  color: #fff;
+}
+
+.ewCartBtn:hover { transform: scale(1.03); background: #0a2e6e; }
+
+.ewBuyBtn {
+  background: #fb641b;
+  color: #fff;
+}
+
+.ewBuyBtn:hover { transform: scale(1.03); background: #e0530b; }
+
+/* ── TRUST STRIP ── */
+.ewTrustStrip {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #0b0c10, #1f2833);
+  border-radius: 14px;
+  padding: 1rem 1.6rem;
+  margin-top: 1.8rem;
+  color: #c5c6c7;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.ewTrustStrip span { display: flex; align-items: center; gap: 0.4rem; }

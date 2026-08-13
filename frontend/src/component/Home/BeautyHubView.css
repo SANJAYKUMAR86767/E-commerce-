@@ -1,0 +1,334 @@
+/* ════════════════════════════════════════════════════════════
+   BEAUTY HUB - ULTRA PREMIUM REDESIGN
+════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap');
+
+.beautyHubContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+  background: #fdf5f8;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ── ENTRANCE ANIMATIONS ── */
+.bh-animate-1 { animation: bhFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0s both; }
+.bh-animate-2 { animation: bhFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s both; }
+.bh-animate-3 { animation: bhFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s both; }
+.bh-animate-4 { animation: bhFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s both; }
+.bh-animate-5 { animation: bhFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s both; }
+
+@keyframes bhFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── LIVE TICKER ── */
+.bh-ticker-bar {
+  background: linear-gradient(90deg, #c2185b, #e91e63, #ff1493);
+  color: white;
+  padding: 10px 0;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.bh-ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: bhTicker 35s linear infinite;
+}
+
+@keyframes bhTicker {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ── HERO SPLIT BANNER ── */
+.bh-hero-split {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 15px;
+  padding: 0 15px;
+  height: 420px;
+}
+
+.bh-hero-main-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.bh-hero-sub-col {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bh-hero-sub-card {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.bh-hero-sub-card:hover { transform: scale(1.02); }
+
+.bh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(180,0,80,0.8) 0%, rgba(0,0,0,0.3) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  color: white;
+}
+
+.bh-hero-badge {
+  background: white;
+  color: #e91e63;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.bh-hero-overlay h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0 0 10px;
+  text-shadow: 2px 4px 15px rgba(0,0,0,0.3);
+}
+
+.bh-hero-overlay h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin: 0 0 5px;
+}
+
+.bh-hero-overlay p { font-size: 1rem; color: rgba(255,255,255,0.85); margin: 0 0 10px; }
+
+.bh-hero-btn {
+  padding: 12px 28px;
+  background: white;
+  color: #e91e63;
+  border: none;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.bh-hero-btn:hover {
+  background: #e91e63;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ── BRAND NAV ── */
+.bh-section-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.bh-brand-nav-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 5px 15px 10px;
+}
+
+.bh-brand-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  gap: 6px;
+}
+
+.bh-brand-icon-box:hover { transform: translateY(-6px); }
+
+.bh-brand-circle {
+  width: 85px;
+  height: 85px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.15);
+  padding: 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.bh-brand-icon-box:hover .bh-brand-circle {
+  border-color: #e91e63;
+  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+}
+
+.bh-brand-circle img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.bh-brand-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #333;
+  text-align: center;
+}
+
+.bh-brand-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #e91e63;
+  text-align: center;
+  background: #fff0f5;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* ── TRENDING GRID ── */
+.bh-trending-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 5px 15px 15px;
+  scrollbar-width: none;
+}
+
+.bh-trending-card {
+  min-width: 230px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.bh-trending-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 35px rgba(233, 30, 99, 0.15);
+}
+
+/* ── PREMIUM BRAND PRODUCT CARDS ── */
+.bh-premium-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.07);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  background: white;
+}
+
+.bh-premium-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(233, 30, 99, 0.2);
+}
+
+/* ── CURATED COLLECTIONS ── */
+.bh-collection-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 5px 15px 15px;
+}
+
+.bh-collection-card {
+  min-width: 280px;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.bh-collection-card:hover { transform: scale(1.03); }
+
+.bh-collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bh-collection-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: white;
+  color: #e91e63;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+.bh-collection-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 20px 20px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  color: white;
+}
+
+.bh-collection-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.bh-collection-desc {
+  font-size: 0.95rem;
+  color: #ffd1dc;
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ── */
+@media screen and (max-width: 768px) {
+  .bh-hero-split {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .bh-hero-main-card { height: 300px; }
+  .bh-hero-sub-col { flex-direction: row; }
+  .bh-hero-sub-card { height: 180px; }
+  .bh-hero-overlay h2 { font-size: 2rem; }
+}

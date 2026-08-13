@@ -1,0 +1,277 @@
+/* ════════════════════════════════════════════════════════════
+   MOBILES HUB - ULTRA PREMIUM DESIGN
+════════════════════════════════════════════════════════════ */
+
+.mobilesHubContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 15px 40px;
+  background-color: #f1f3f6; /* Classic Flipkart background */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Staggered entrance animations */
+.mh-animate-1 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; opacity: 0; }
+.mh-animate-2 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards; opacity: 0; }
+.mh-animate-3 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards; opacity: 0; }
+.mh-animate-4 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s forwards; opacity: 0; }
+.mh-animate-5 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s forwards; opacity: 0; }
+.mh-animate-6 { animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s forwards; opacity: 0; }
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── 1. TOP CURVED BANNERS ── */
+.mh-banners-row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.mh-banner-card {
+  flex: 1;
+  border-radius: 16px; /* High border radius for curve */
+  overflow: hidden;
+  position: relative;
+  height: 220px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.mh-banner-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.mh-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── 2. SBI BANK BANNER ── */
+.mh-bank-banner {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mh-bank-banner:hover {
+  transform: scale(1.01);
+}
+
+.mh-bank-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── 3. CIRCULAR BRAND NAV ── */
+.mh-brand-nav-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 10px 5px;
+}
+
+.mh-brand-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mh-brand-icon-box:hover {
+  transform: translateY(-5px);
+}
+
+.mh-brand-circle {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 12px; /* Slightly squircle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #f0f0f0;
+}
+
+.mh-brand-circle img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.mh-brand-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ── 4. UPCOMING LAUNCHES ── */
+.mh-section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.mh-launches-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 10px;
+}
+
+.mh-launch-card {
+  min-width: 400px;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.mh-launch-card:hover {
+  transform: scale(1.03);
+}
+
+.mh-launch-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── 5. LIGHT BLUE / PEACH ROWS (Freedom Deals & EMI) ── */
+.mh-deals-section {
+  background: #e8f4fd; /* Light blue */
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(40, 116, 240, 0.1);
+}
+
+.mh-emi-section {
+  background: #fdf5e6; /* Soft peach */
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(247, 150, 70, 0.1);
+}
+
+.mh-deals-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.mh-deal-card {
+  min-width: 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.mh-deal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.mh-deal-card img {
+  width: 140px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.mh-deal-card:hover img {
+  transform: scale(1.1);
+}
+
+.mh-rating-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #2874f0;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* ── 6. SHOP YOUR VIBE (Color Text Cards) ── */
+.mh-vibe-row {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  padding: 20px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.mh-vibe-card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mh-vibe-card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.mh-vibe-text {
+  font-size: 4.5rem;
+  font-weight: 900;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  margin-right: -20px; /* Overlap slightly */
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.mh-vibe-card img {
+  height: 300px;
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2));
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .mh-banners-row {
+    flex-direction: column;
+  }
+  .mh-launch-card {
+    min-width: 300px;
+  }
+}

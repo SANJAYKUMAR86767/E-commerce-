@@ -1,0 +1,295 @@
+/* ═════════════════════════════════════════════════════════════
+   WOMEN'S & BRIDAL ROYAL FESTIVE WEAR STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.womensSectionWrap {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.womensHeaderBanner {
+  background: linear-gradient(135deg, #881337 0%, #be123c 50%, #4c0519 100%);
+  border: 2px solid #fda4af;
+  border-radius: 20px;
+  padding: 1.6rem 2rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 35px rgba(225, 29, 72, 0.25);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.womensHeaderLeft {
+  flex: 1;
+  min-width: 280px;
+}
+
+.womensRoyalBadge {
+  background: linear-gradient(135deg, #f43f5e, #fb7185);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.womensTitle {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0.6rem 0 0.2rem;
+  color: #fff1f2;
+}
+
+.womensSub {
+  font-size: 0.9rem;
+  opacity: 0.92;
+  margin: 0;
+}
+
+.womensHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.womensSearchInput {
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #fb7185;
+  outline: none;
+  font-size: 0.85rem;
+  width: 220px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000000;
+  font-weight: 700;
+}
+
+.womensNavBtnBox {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.womensArrowBtn {
+  background: rgba(251, 113, 133, 0.2);
+  border: 1px solid #fb7185;
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.womensArrowBtn:hover {
+  background: #f43f5e;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.womensCountPill {
+  background: linear-gradient(135deg, #f43f5e, #fb7185);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+}
+
+/* Category Filter Pills */
+.womensFilterPillsBar {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.8rem;
+  scrollbar-width: none;
+}
+.womensFilterPillsBar::-webkit-scrollbar { display: none; }
+
+.womensPillBtn {
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  color: #212121;
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.womensPillBtn:hover, .womensPillBtn.active {
+  background: #881337;
+  color: #ffffff;
+  border-color: #f43f5e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.3);
+}
+
+/* CAROUSEL CONTAINER */
+.womensCarouselContainer {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  scrollbar-width: none;
+}
+.womensCarouselContainer::-webkit-scrollbar { display: none; }
+
+.womensProductCard {
+  width: 250px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s ease;
+}
+
+.womensProductCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(225, 29, 72, 0.3);
+  border-color: #f43f5e;
+}
+
+.womensImgContainer {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: #fff1f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.womensCardImg {
+  max-width: 88%;
+  max-height: 88%;
+  object-fit: contain;
+}
+
+.womensDiscountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.womensBadgeTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(136, 19, 55, 0.9);
+  color: #fff1f2;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.womensCardContent {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.womensBrandName {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #be123c;
+  margin-bottom: 0.2rem;
+}
+
+.womensItemTitle {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.womensRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.womensStar {
+  color: #ff9f00;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.womensReviews {
+  font-size: 0.78rem;
+  color: #878787;
+}
+
+.womensPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.womensPriceCurrent {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #881337;
+}
+
+.womensPriceMrp {
+  font-size: 0.85rem;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.womensAddCartBtn {
+  width: 100%;
+  padding: 0.65rem;
+  background: linear-gradient(135deg, #881337, #be123c);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.womensAddCartBtn:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #e11d48, #f43f5e);
+}

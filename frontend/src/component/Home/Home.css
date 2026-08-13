@@ -1,0 +1,208 @@
+/* ═════════════════════════════════════════════════════════════
+   FLIPKART HERO CAROUSEL STYLING (3D Product Showcases)
+═════════════════════════════════════════════════════════════ */
+.flipkartHeroCarousel {
+  max-width: 1240px;
+  margin: 1.5rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.flipkartBannerSlide {
+  min-height: 340px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  padding: 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bannerLeftContent {
+  flex: 1;
+  max-width: 55%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.bannerBadge {
+  background: #ffe500;
+  color: #000000;
+  font-weight: 900;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.flipkartBannerSlide h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.flipkartBannerSlide p {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
+.bannerBankBadge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 8px;
+  margin-bottom: 1.4rem;
+}
+
+.shopBannerBtn {
+  background: #ffffff;
+  color: #2874f0;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+.shopBannerBtn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: #ffe500;
+  color: #000000;
+  box-shadow: 0 12px 30px rgba(255, 229, 0, 0.4);
+}
+
+.bannerRightImages {
+  display: flex;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.bannerImgCard {
+  width: 140px;
+  height: 170px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.bannerImgCard:hover {
+  transform: translateY(-6px) scale(1.06);
+}
+
+.bannerProductImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featuredProductsSection {
+  max-width: 1240px;
+  margin: 2.5rem auto;
+  position: relative;
+}
+
+.trendingProductsBannerHeader {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border: 2px solid #64b5f6;
+  border-radius: 20px;
+  padding: 1.6rem 2rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 12px 35px rgba(40, 116, 240, 0.25);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.trendingLiveBadge {
+  background: #ffe500;
+  color: #000000;
+  font-weight: 900;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.trendingBannerTitle {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0.6rem 0 0.2rem;
+  color: #ffffff;
+}
+
+.trendingBannerSub {
+  font-size: 0.9rem;
+  opacity: 0.92;
+  margin: 0;
+}
+
+.trendingBestsellerPill {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 0 1rem 3rem 1rem;
+}
+
+/* ══ SEQUENTIAL SECTION DIVIDER ══ */
+.homeSectionDivider {
+  max-width: 1240px;
+  margin: 3rem auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #dadce0 30%, #2874f0 50%, #dadce0 70%, transparent);
+}
+
+@media screen and (max-width: 768px) {
+  .flipkartBannerSlide {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .bannerLeftContent {
+    max-width: 100%;
+    align-items: center;
+  }
+  .bannerRightImages {
+    display: none;
+  }
+}

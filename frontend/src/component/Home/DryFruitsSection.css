@@ -1,0 +1,421 @@
+/* ═══════════════════════════════════════════════════════════════
+   DRY FRUITS & NUTS STORE — PREMIUM WARM EARTHY THEME
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.dfSection {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── HERO BANNER ── */
+.dfBanner {
+  background: linear-gradient(135deg, #3b1a08 0%, #6b3a1f 45%, #a0522d 100%);
+  border: 2px solid #d4a96a;
+  border-radius: 20px;
+  padding: 1.8rem 2.2rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  box-shadow: 0 14px 40px rgba(59, 26, 8, 0.45), 0 0 60px rgba(212, 169, 106, 0.1);
+  margin-bottom: 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dfBanner::before {
+  content: "";
+  position: absolute;
+  top: -70px; right: -70px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(212,169,106,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.dfBannerLeft { flex: 1; min-width: 260px; }
+.dfBannerRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: flex-end;
+}
+
+.dfLiveChip {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4a96a, #a0522d);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 0.28rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.dfBanTitle {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin: 0 0 0.35rem;
+  color: #fef3c7;
+}
+
+.dfBanSub {
+  font-size: 0.88rem;
+  color: #fcd9a0;
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.dfBanStats {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.dfStat {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.dfStatNum {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fbbf24;
+}
+
+.dfStatLabel {
+  font-size: 0.68rem;
+  color: #fcd9a0;
+  margin-top: 0.15rem;
+}
+
+.dfSearch {
+  padding: 0.7rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #d4a96a;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  width: 260px;
+  background: rgba(59,26,8,0.6);
+  color: #fef3c7;
+}
+.dfSearch::placeholder { color: #c49a6c; }
+
+.dfNavRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.dfNavBtn {
+  background: rgba(212,169,106,0.2);
+  border: 1.5px solid #d4a96a;
+  color: #fbbf24;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.dfNavBtn:hover {
+  background: #d4a96a;
+  color: #3b1a08;
+  transform: scale(1.12);
+}
+
+.dfCountChip {
+  background: linear-gradient(135deg, #d4a96a, #a0522d);
+  color: #fff;
+  padding: 0.55rem 1.1rem;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* ── CATEGORY PILLS ── */
+.dfPillsBar {
+  display: flex;
+  gap: 0.7rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  scrollbar-width: none;
+}
+.dfPillsBar::-webkit-scrollbar { display: none; }
+
+.dfPill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 30px;
+  border: 1.5px solid #e5c99a;
+  background: #fffbf0;
+  color: #6b3a1f;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(107, 58, 31, 0.08);
+}
+
+.dfPill:hover,
+.dfPillActive {
+  background: #6b3a1f;
+  color: #fef3c7;
+  border-color: #d4a96a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 58, 31, 0.35);
+}
+
+.dfPillLabel { font-size: 0.9rem; }
+
+/* ── 3D CAROUSEL ── */
+.dfCarousel {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.25rem 1.4rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.dfCarousel::-webkit-scrollbar { display: none; }
+
+.dfEmpty {
+  font-size: 1rem;
+  color: #888;
+  padding: 3rem 2rem;
+  font-weight: 700;
+}
+
+/* ── PRODUCT CARD ── */
+.dfCard {
+  width: 265px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #ede8dc;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(107, 58, 31, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.dfCard:hover {
+  transform: translateY(-10px) rotateY(-5deg);
+  box-shadow: 0 24px 52px rgba(107, 58, 31, 0.25);
+  border-color: #d4a96a;
+}
+
+/* IMG BOX */
+.dfCardImgBox {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(ellipse at center, #fffbf0 0%, #fef3c7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dfCardImg {
+  max-width: 86%;
+  max-height: 86%;
+  object-fit: cover;
+  filter: drop-shadow(0 14px 22px rgba(107, 58, 31, 0.18));
+  transition: transform 0.38s ease;
+  border-radius: 8px;
+}
+
+.dfCard:hover .dfCardImg {
+  transform: scale(1.1) translateZ(12px);
+}
+
+.dfDiscChip {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 900;
+  padding: 0.22rem 0.65rem;
+  border-radius: 5px;
+}
+
+.dfBadgeChip {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: rgba(59, 26, 8, 0.88);
+  color: #fbbf24;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.22rem 0.65rem;
+  border-radius: 5px;
+}
+
+/* HOVER OVERLAY */
+.dfCardOverlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(59, 26, 8, 0.88) 0%, transparent 100%);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dfCard:hover .dfCardOverlay { opacity: 1; }
+
+.dfOverlayView,
+.dfOverlayBuy {
+  flex: 1;
+  padding: 0.46rem 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: 900;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.dfOverlayView { background: rgba(255,255,255,0.92); color: #6b3a1f; }
+.dfOverlayBuy  { background: #d4a96a; color: #3b1a08; }
+.dfOverlayView:hover, .dfOverlayBuy:hover { transform: scale(1.04); }
+
+/* CARD BODY */
+.dfCardBody {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-grow: 1;
+}
+
+.dfBrandLabel {
+  font-size: 0.73rem;
+  font-weight: 900;
+  color: #a0522d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dfCardTitle {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #1c1410;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.35;
+}
+
+.dfSpecsRow {
+  font-size: 0.73rem;
+  color: #6b3a1f;
+  font-weight: 700;
+  background: #fef9ee;
+  padding: 0.32rem 0.6rem;
+  border-radius: 6px;
+  border-left: 3px solid #d4a96a;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dfRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dfStars { color: #f59e0b; font-weight: 900; font-size: 0.92rem; }
+.dfRevs  { font-size: 0.77rem; color: #9a7a5e; }
+
+.dfPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.dfPrice { font-size: 1.32rem; font-weight: 900; color: #1c1410; }
+.dfMrp   { font-size: 0.84rem; color: #b8a090; text-decoration: line-through; }
+.dfSaved { font-size: 0.78rem; color: #16a34a; font-weight: 800; }
+
+.dfFreeTag {
+  font-size: 0.75rem;
+  color: #a0522d;
+  font-weight: 800;
+}
+
+.dfBtnRow {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.dfCartBtn,
+.dfBuyBtn {
+  flex: 1;
+  padding: 0.62rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.dfCartBtn { background: #a0522d; color: #fff; }
+.dfCartBtn:hover { transform: scale(1.03); background: #7c3d1f; }
+
+.dfBuyBtn { background: #fb641b; color: #fff; }
+.dfBuyBtn:hover { transform: scale(1.03); background: #e0530b; }
+
+/* ── TRUST STRIP ── */
+.dfTrustStrip {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #3b1a08, #6b3a1f);
+  border-radius: 14px;
+  padding: 1rem 1.6rem;
+  margin-top: 1.8rem;
+  color: #fcd9a0;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.dfTrustStrip span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}

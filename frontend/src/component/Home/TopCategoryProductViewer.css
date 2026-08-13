@@ -1,0 +1,334 @@
+/* ═════════════════════════════════════════════════════════════
+   TOP CATEGORY PRODUCT VIEWER 3D STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.topViewerContainer {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border: 1.5px solid #eaeef5;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HERO BANNER */
+.topViewerHeroBanner {
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 1.8rem 2.2rem;
+  margin-bottom: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+  transition: all 0.5s ease;
+}
+
+.topViewerTag {
+  background: #ffe500;
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.topViewerBannerTitle {
+  margin: 0.6rem 0 0.3rem;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.topViewerBannerSub {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.topViewerBannerImgBox {
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* SUB-CATEGORY PILLS BAR */
+.topViewerPillsBarWrapper {
+  margin-bottom: 1.8rem;
+}
+
+.topViewerPillsBarScroll {
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  scrollbar-width: none;
+}
+.topViewerPillsBarScroll::-webkit-scrollbar { display: none; }
+
+.topViewerPill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 0.35rem 0.9rem 0.35rem 0.35rem;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: all 0.25s ease;
+}
+
+.topViewerPill:hover, .topViewerPill.active {
+  background: #fff0f6;
+  border-color: #e91e63;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(233, 30, 99, 0.2);
+}
+
+.topViewerPillImgBox {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.topViewerPillImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.topViewerPillLabel {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #212121;
+}
+
+/* HEADER ROW */
+.topViewerHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.topViewerLiveBadge {
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.topViewerHeading {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 0.4rem 0 0.2rem;
+  color: #172337;
+}
+
+.topViewerSub {
+  font-size: 0.88rem;
+  color: #666;
+  margin: 0;
+}
+
+.topViewerNavArrowBtn {
+  background: #fff0f6;
+  border: 1.5px solid #e91e63;
+  color: #e91e63;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.topViewerNavArrowBtn:hover {
+  background: #e91e63;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.topViewerCountPill {
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+}
+
+/* 3D CAROUSEL CONTAINER */
+.topViewer3DCarousel {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.topViewer3DCarousel::-webkit-scrollbar { display: none; }
+
+.topViewer3DCard {
+  width: 250px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.topViewer3DCard:hover {
+  transform: translateY(-8px) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(233, 30, 99, 0.25);
+  border-color: #e91e63;
+}
+
+.topViewer3DImgBox {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: radial-gradient(circle at center, #ffffff 0%, #fff0f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.topViewer3DCardImg {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.12));
+  transition: transform 0.35s ease;
+}
+
+.topViewer3DCard:hover .topViewer3DCardImg {
+  transform: scale(1.08) translateZ(10px);
+}
+
+.topViewerDiscountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #00c853;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.topViewerBadgeTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(233, 30, 99, 0.9);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.topViewer3DCardBody {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.topViewerBrandText {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #e91e63;
+  margin-bottom: 0.2rem;
+}
+
+.topViewerItemTitle {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topViewerRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.topViewerReviewsText {
+  font-size: 0.78rem;
+  color: #878787;
+}
+
+.topViewerPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.topViewerPriceCurrent {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #212121;
+}
+
+.topViewerPriceMrp {
+  font-size: 0.85rem;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.topViewerAddBagBtn {
+  width: 100%;
+  padding: 0.65rem;
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.topViewerAddBagBtn:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}

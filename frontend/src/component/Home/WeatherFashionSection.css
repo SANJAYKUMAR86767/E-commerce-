@@ -1,0 +1,282 @@
+/* ═════════════════════════════════════════════════════════════
+   SMART WEATHER & SEASONAL FASHION STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.weatherSectionWrap {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.weatherHeaderBanner {
+  border-radius: 20px;
+  padding: 1.6rem 2rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+  gap: 1rem;
+  transition: background 0.5s ease;
+}
+
+.weatherHeaderLeft {
+  flex: 1;
+  min-width: 280px;
+}
+
+.weatherLiveBadge {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.weatherTitle {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0.6rem 0 0.2rem;
+  color: #ffffff;
+}
+
+.weatherSub {
+  font-size: 0.92rem;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.weatherHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.weatherNavBtnBox {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.weatherArrowBtn {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.weatherArrowBtn:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+.weatherCountPill {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+}
+
+/* Category Filter Tabs */
+.weatherFilterTabsBar {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.8rem;
+  scrollbar-width: none;
+}
+.weatherFilterTabsBar::-webkit-scrollbar { display: none; }
+
+.weatherTabBtn {
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  color: #212121;
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.weatherTabBtn:hover, .weatherTabBtn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.3);
+}
+
+/* CAROUSEL CONTAINER */
+.weatherCarouselContainer {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.weatherCarouselContainer::-webkit-scrollbar { display: none; }
+
+.weatherProductCard {
+  width: 250px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.weatherProductCard:hover {
+  transform: translateY(-8px) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.25);
+  border-color: #38bdf8;
+}
+
+.weatherImgContainer {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.weatherCardImg {
+  max-width: 88%;
+  max-height: 88%;
+  object-fit: contain;
+}
+
+.weatherDiscountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.weatherBadgeTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #f0f9ff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.weatherCardContent {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.weatherBrandName {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0284c7;
+  margin-bottom: 0.2rem;
+}
+
+.weatherItemTitle {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.weatherRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.weatherStar {
+  color: #ff9f00;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.weatherReviews {
+  font-size: 0.78rem;
+  color: #878787;
+}
+
+.weatherPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.weatherPriceCurrent {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.weatherPriceMrp {
+  font-size: 0.85rem;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.weatherAddCartBtn {
+  width: 100%;
+  padding: 0.65rem;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.weatherAddCartBtn:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+}

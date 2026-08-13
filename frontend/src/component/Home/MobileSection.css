@@ -1,0 +1,281 @@
+/* ═════════════════════════════════════════════════════════════
+   MOBILE 3D CAROUSEL STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.mobileSectionContainer {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HORIZONTAL BRAND PILL NAV */
+.mobileNavWrapper {
+  margin-bottom: 1.8rem;
+}
+
+.mobileNavScroll {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  scrollbar-width: none;
+}
+.mobileNavScroll::-webkit-scrollbar { display: none; }
+
+.mobileBrandPill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #e0e0e0;
+  background: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.mobileBrandPill:hover, .mobileBrandPill.active {
+  background: #1b263b;
+  color: #ffffff;
+  border-color: #778da9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(27, 38, 59, 0.3);
+}
+
+.pillImageWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pillName {
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.mobileNavArrowBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.mobileNavArrowBtn:hover {
+  background: #ff9f00;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+/* 3D CAROUSEL CONTAINER */
+.mobile3DCarouselContainer {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.mobile3DCarouselContainer::-webkit-scrollbar { display: none; }
+
+.mobile3DProductCard {
+  width: 260px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.mobile3DProductCard:hover {
+  transform: translateY(-8px) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(13, 27, 42, 0.25);
+  border-color: #415a77;
+}
+
+.mobile3DImgBox {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: radial-gradient(circle at center, #ffffff 0%, #f0f4f8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile3DCardImg {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.15));
+  transition: transform 0.35s ease;
+}
+
+.mobile3DProductCard:hover .mobile3DCardImg {
+  transform: scale(1.08) translateZ(10px);
+}
+
+.mobileDiscountTag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #388e3c;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.mobileBadgeTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(13, 27, 42, 0.9);
+  color: #ff9f00;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.mobile3DCardBody {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.mobileCategoryBrand {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #415a77;
+  margin-bottom: 0.2rem;
+}
+
+.mobile3DItemTitle {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobileSpecsChip {
+  font-size: 0.74rem;
+  color: #1b263b;
+  font-weight: 700;
+  background: #e0e1dd;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobileRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.mobileReviewsText {
+  font-size: 0.78rem;
+  color: #878787;
+}
+
+.mobilePriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.mobilePriceCurrent {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #0d1b2a;
+}
+
+.mobilePriceMrp {
+  font-size: 0.85rem;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.mobileCardBtnRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mobileAddToCartBtn {
+  flex: 1;
+  padding: 0.6rem;
+  background: #ff9f00;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mobileAddToCartBtn:hover {
+  transform: scale(1.03);
+  background: #e68a00;
+}
+
+.mobileBuyNowBtn {
+  flex: 1;
+  padding: 0.6rem;
+  background: #fb641b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mobileBuyNowBtn:hover {
+  transform: scale(1.03);
+  background: #e0530b;
+}

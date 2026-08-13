@@ -1,0 +1,218 @@
+/* ═════════════════════════════════════════════════════════════
+   CategoryNav – FLIPKART OFFICIAL TOP BAR STYLING (Matching Screenshots)
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap');
+
+.fkCatNavContainer {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 0.4rem 0 0;
+  margin-bottom: 1.2rem;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 90;
+}
+
+.fkCatNavScroll {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  overflow-x: auto;
+  padding: 0 0.8rem;
+  gap: 0.8rem;
+  scrollbar-width: none;
+}
+
+.fkCatNavScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.fkCatItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem 0.5rem;
+  position: relative;
+  min-width: 72px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.fkCatItem:hover {
+  transform: translateY(-2px);
+}
+
+.fkCatIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.35rem;
+  border: 1px solid #eeeeee;
+  transition: all 0.2s ease;
+}
+
+.fkCatItem:hover .fkCatIconBox {
+  background: #eef4ff;
+  border-color: #2874f0;
+}
+
+.fkCatItem.active .fkCatIconBox {
+  background: #2874f0;
+  border-color: #2874f0;
+  box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+}
+
+.fkEmojiIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.fkCatItem:hover .fkEmojiIcon {
+  transform: scale(1.15);
+}
+
+.fkCatLabel {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #212121;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.fkCatItem:hover .fkCatLabel {
+  color: #2874f0;
+}
+
+.fkCatItem.active .fkCatLabel {
+  color: #2874f0;
+  font-weight: 800;
+}
+
+/* ── BLUE ACTIVE BOTTOM INDICATOR LINE ── */
+.fkActiveIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: #2874f0;
+  border-radius: 4px 4px 0 0;
+}
+
+/* ── MEGA DROPDOWN MENU ── */
+.fkCatItem {
+  position: relative; /* required for dropdown positioning */
+}
+
+.fkCaret {
+  font-size: 0.55rem;
+  color: #878787;
+  margin-left: 2px;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.fkCatItem:hover .fkCaret {
+  transform: rotate(180deg);
+  color: #2874f0;
+}
+
+.fkMegaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  gap: 2rem;
+  cursor: default;
+}
+
+/* Invisible bridge so mouse doesn't fall off */
+.fkMegaMenu::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  height: 15px;
+}
+
+.fkCatItem:hover .fkMegaMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.fkMegaMenuCol {
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+}
+
+.fkMegaMenuColTitle {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.8rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0f0f0;
+  text-align: left;
+}
+
+.fkMegaMenuItem {
+  font-size: 0.82rem;
+  color: #555;
+  padding: 0.4rem 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.fkMegaMenuItem:hover {
+  color: #2874f0;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .fkCatItem {
+    min-width: 62px;
+    padding: 0.2rem 0.3rem 0.4rem;
+  }
+  .fkCatIconBox {
+    width: 36px;
+    height: 36px;
+  }
+  .fkEmojiIcon {
+    font-size: 1.15rem;
+  }
+  .fkCatLabel {
+    font-size: 0.74rem;
+  }
+  .fkCaret {
+    display: none;
+  }
+  .fkMegaMenu {
+    display: none; /* Hide on mobile to avoid overflow */
+  }
+}
+

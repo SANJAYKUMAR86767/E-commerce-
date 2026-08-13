@@ -1,0 +1,325 @@
+/* ═════════════════════════════════════════════════════════════
+   ALL-INCLUSIVE FASHION HUB 3D STYLING
+═════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap');
+
+.gdContainer {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.gdHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gdLiveBadge {
+  background: linear-gradient(135deg, #e91e8c, #c0392b);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.gdTitle {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0.5rem 0 0.2rem;
+  color: #172337;
+}
+
+.gdSub {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.gdSearchInput {
+  padding: 0.65rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #e0e0e0;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  width: 220px;
+  font-weight: 700;
+}
+
+.gdNavArrowBox {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.gdNavArrowBtn {
+  background: #fdf0f7;
+  border: 1.5px solid #e91e8c;
+  color: #e91e8c;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.gdNavArrowBtn:hover {
+  background: #e91e8c;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.gdTotalBadge {
+  background: linear-gradient(135deg, #e91e8c, #8e44ad);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+/* HORIZONTAL PILLS BAR */
+.gdFilterBar {
+  margin-bottom: 1.8rem;
+}
+
+.gdPillsScroll {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
+  scrollbar-width: none;
+}
+.gdPillsScroll::-webkit-scrollbar { display: none; }
+
+.gdPill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  border: 1.5px solid #e0e0e0;
+  background: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.gdPill:hover, .gdPill.active {
+  background: #e91e8c;
+  color: #ffffff;
+  border-color: #e91e8c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(233, 30, 140, 0.3);
+}
+
+.gdPillIcon {
+  font-size: 0.95rem;
+}
+
+.gdPillText {
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+/* 3D CAROUSEL CONTAINER */
+.gd3DCarousel {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.2rem 1.5rem;
+  perspective: 1000px;
+  scrollbar-width: none;
+}
+.gd3DCarousel::-webkit-scrollbar { display: none; }
+
+.gd3DProductCard {
+  width: 260px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid #eef0f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.gd3DProductCard:hover {
+  transform: translateY(-8px) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(233, 30, 140, 0.25);
+  border-color: #e91e8c;
+}
+
+.gd3DImgBox {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: radial-gradient(circle at center, #ffffff 0%, #fff0f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gd3DCardImg {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.12));
+  transition: transform 0.35s ease;
+}
+
+.gd3DProductCard:hover .gd3DCardImg {
+  transform: scale(1.08) translateZ(10px);
+}
+
+.gdDiscountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e91e8c;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.gdBadgeTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(142, 68, 173, 0.9);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.gd3DCardBody {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.gdCategoryText {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #e91e8c;
+  margin-bottom: 0.2rem;
+}
+
+.gd3DItemTitle {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #212121;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gdSpecsChip {
+  font-size: 0.74rem;
+  color: #8e44ad;
+  font-weight: 700;
+  background: #fdf0f7;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gdRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.gdReviewsText {
+  font-size: 0.78rem;
+  color: #878787;
+}
+
+.gdPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.gdPriceCurrent {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #212121;
+}
+
+.gdPriceMrp {
+  font-size: 0.85rem;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.gdCardBtnRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.gdAddToCartBtn {
+  flex: 1;
+  padding: 0.6rem;
+  background: #e91e8c;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gdAddToCartBtn:hover {
+  transform: scale(1.03);
+  background: #c0392b;
+}
+
+.gdBuyNowBtn {
+  flex: 1;
+  padding: 0.6rem;
+  background: #fb641b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gdBuyNowBtn:hover {
+  transform: scale(1.03);
+  background: #e0530b;
+}

@@ -1,0 +1,34 @@
+/* ═══════════════════════════════════════════════════════════════
+   HOME APPLIANCES THEME
+═══════════════════════════════════════════════════════════════ */
+.haSection { max-width: 1280px; margin: 2.5rem auto; padding: 0 1rem; font-family: 'Inter', sans-serif; }
+.haHeader { display: flex; justify-content: space-between; align-items: flex-end; background: linear-gradient(135deg, #064e3b, #0f766e); padding: 1.5rem 2rem; border-radius: 16px; color: #fff; margin-bottom: 1.5rem; }
+.haLiveChip { background: #f59e0b; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; display: inline-block; margin-bottom: 0.5rem; color: #000; }
+.haBanTitle { font-size: 1.8rem; font-weight: 900; margin: 0 0 0.3rem; }
+.haBanSub { font-size: 0.9rem; color: #a7f3d0; margin: 0; }
+.haNavRow { display: flex; gap: 0.5rem; }
+.haNavBtn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-weight: bold; transition: all 0.2s; }
+.haNavBtn:hover { background: #f59e0b; color: #000; transform: scale(1.1); }
+
+.haCarousel { display: flex; gap: 1.3rem; overflow-x: auto; padding: 1rem 0.5rem 2rem; perspective: 1000px; scrollbar-width: none; }
+.haCarousel::-webkit-scrollbar { display: none; }
+.haCard { min-width: 280px; max-width: 280px; flex-shrink: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+.haCard:hover { transform: translateY(-8px); box-shadow: 0 16px 32px rgba(0,0,0,0.1); border-color: #cbd5e1; }
+.haCardImgBox { width: 100%; height: 220px; position: relative; background: #f8fafc; overflow: hidden; display: flex; justify-content: center; align-items: center;}
+.haCardImg { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.haCard:hover .haCardImg { transform: scale(1.08); }
+.haDiscChip { position: absolute; top: 10px; left: 10px; background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; }
+.haBadgeChip { position: absolute; bottom: 10px; right: 10px; background: rgba(6,78,59,0.85); color: #a7f3d0; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 12px; }
+
+.haCardBody { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; }
+.haBrandLabel { font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; }
+.haCardTitle { font-size: 0.95rem; font-weight: 800; margin: 0; color: #0f172a; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.haSpecsRow { font-size: 0.75rem; font-weight: 600; color: #334155; background: #f1f5f9; padding: 0.4rem; border-radius: 6px; }
+.haRatingRow { display: flex; align-items: center; gap: 0.5rem; }
+.haStars { color: #f59e0b; font-weight: 800; font-size: 0.9rem; }
+.haRevs { font-size: 0.75rem; color: #94a3b8; }
+.haPriceRow { display: flex; align-items: baseline; gap: 0.5rem; margin-top: auto;}
+.haPrice { font-size: 1.3rem; font-weight: 900; color: #0f172a; }
+.haMrp { font-size: 0.85rem; color: #94a3b8; text-decoration: line-through; }
+.haBtnBuy { margin-top: 0.8rem; background: #0f766e; color: #fff; border: none; padding: 0.7rem; border-radius: 8px; font-weight: 800; cursor: pointer; transition: background 0.2s; }
+.haBtnBuy:hover { background: #064e3b; }
