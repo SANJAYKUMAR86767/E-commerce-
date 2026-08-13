@@ -42,6 +42,7 @@ const { seedSampleProductsIfEmpty, sampleProductsData } = require("../utils/samp
 
 // Get All Product
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
+  const resultPerPage = 8;
   let products = [];
 
   try {
