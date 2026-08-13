@@ -251,7 +251,7 @@ const LoginSignUp = ({ history, location }) => {
                         onChange={registerDataChange}
                       />
                     </div>
-                    
+
                     <input type="submit" value="Register" className="signUpBtn" />
                     
                     <p className="switchPrompt">
@@ -265,6 +265,8 @@ const LoginSignUp = ({ history, location }) => {
           </div>
         </Fragment>
       )}
+    </Fragment>
+  );
+};
 
-
-
+export default LoginSignUp;
