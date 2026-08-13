@@ -1,129 +1,433 @@
-.profileContainer {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  max-width: 100%;
-  background-color: white;
-}
+/* VIP Dashboard Styles */
 
-.profileContainer > div {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  max-width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.profileContainer > div:first-child > h1 {
-  color: rgba(0, 0, 0, 0.555);
-  font: 500 2.2vmax "Roboto";
-  transform: translateX(-10vmax) translateY(-2vmax);
-}
-
-.profileContainer > div:first-child > img {
-  width: 20vmax;
-  border-radius: 100%;
-  transition: all 0.5s;
-}
-
-.profileContainer > div:first-child > img:hover {
-  transform: scale(1.05);
-}
-
-.profileContainer > div:first-child > a {
-  border: none;
-  background-color: tomato;
-  font: 400 1vmax "Roboto";
-  color: white;
-  text-decoration: none;
-  padding: 0.5vmax;
-  width: 30%;
-  margin: 4vmax;
-  text-align: center;
-  transition: all 0.5s;
-}
-
-.profileContainer > div:first-child > a:hover {
-  background-color: rgb(204, 78, 56);
-}
-
-.profileContainer > div:last-child {
-  justify-content: space-evenly;
-  align-items: flex-start;
-  padding: 5vmax;
+.vipDashboardWrapper {
+  max-width: 1240px;
+  margin: 30px auto 60px auto;
+  padding: 0 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   box-sizing: border-box;
 }
 
-.profileContainer > div:last-child > div > h4 {
-  color: black;
-  font: 400 1.2vmax "Roboto";
+/* Hero Banner */
+.vipHeroHeader {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #31104b 100%);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.profileContainer > div:last-child > div > p {
-  color: rgba(0, 0, 0, 0.418);
-  font: 400 1vmax cursive;
-  margin: 0.2vmax;
+.vipHeroHeader::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
 }
 
-.profileContainer > div:last-child > div:last-child {
+.vipGreetingBox {
+  max-width: 60%;
+  z-index: 2;
+}
+
+.greetingBadge {
+  display: inline-block;
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.vipGreetingBox h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.userNameHighlight {
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vipGreetingBox p {
+  color: #94a3b8;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.vipAvatarBox {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  align-items: center;
+  z-index: 2;
 }
 
-.profileContainer > div:last-child > div:last-child > a {
-  border: none;
-  background-color: rgb(68, 68, 68);
-  font: 400 1vmax "Roboto";
-  color: white;
+.avatarRing {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #f59e0b, #ec4899, #3b82f6);
+  box-shadow: 0 0 25px rgba(236, 72, 153, 0.5);
+  margin-bottom: 12px;
+  transition: transform 0.4s ease;
+}
+
+.avatarRing:hover {
+  transform: scale(1.06) rotate(3deg);
+}
+
+.avatarRing img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #000;
+}
+
+.editProfileBtn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   text-decoration: none;
-  padding: 0.5vmax;
-  text-align: center;
-  transition: all 0.5s;
-  margin: 1vmax 0;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-.profileContainer > div:last-child > div:last-child > a:hover {
-  background-color: rgb(31, 31, 31);
+.editProfileBtn:hover {
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
 }
 
-@media screen and (max-width: 600px) {
-  .profileContainer {
+/* Quick Stats Grid */
+.vipStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.statCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+.statIcon {
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goldCard .statIcon { background: #fef3c7; }
+.blueCard .statIcon { background: #e0f2fe; }
+.purpleCard .statIcon { background: #f3e8ff; }
+.pinkCard .statIcon { background: #fce7f3; }
+
+.statDetails h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.statDetails p {
+  margin: 2px 0 0 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.statBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.statLink {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* Section Titles */
+.vipSectionTitle {
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+
+.vipSectionTitle h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.vipSectionTitle p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Actions Grid */
+.vipActionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.actionHubCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.actionHubCard:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+  box-shadow: 0 14px 30px rgba(59, 130, 246, 0.12);
+}
+
+.cardIcon {
+  font-size: 28px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+}
+
+.actionHubCard:hover .cardIcon {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.cardContent h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cardContent p {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.cardArrow {
+  margin-left: auto;
+  font-size: 18px;
+  color: #94a3b8;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.actionHubCard:hover .cardArrow {
+  transform: translateX(4px);
+  color: #2563eb;
+}
+
+/* Account Details Card */
+.accountDetailsCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 35px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+}
+
+.accountDetailsCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detailLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detailValue {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.verifiedBadge {
+  color: #16a34a;
+  background: #dcfce7;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  width: fit-content;
+}
+
+/* VIP Perks Banner */
+.vipPerksBanner {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #0c4a6e 100%);
+  border-radius: 24px;
+  padding: 35px;
+  margin-top: 40px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25);
+}
+
+.perksHeader {
+  margin-bottom: 25px;
+}
+
+.perksTag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.perksHeader h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 10px 0 0 0;
+}
+
+.perksList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.perkItem {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.perkIcon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.perkItem h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.perkItem p {
+  font-size: 13px;
+  color: #e0f2fe;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vipHeroHeader {
     flex-direction: column;
-  }
-
-  .profileContainer > div:first-child > h1 {
-    font: 500 3.2vmax "Roboto";
-    transform: translateY(-2vmax);
-  }
-
-  .profileContainer > div:first-child > a {
-    font: 400 1.7vmax "Roboto";
-    padding: 1vmax;
-  }
-
-  .profileContainer > div:last-child {
     text-align: center;
-    align-items: center;
+    padding: 30px 20px;
   }
 
-  .profileContainer > div:last-child > div > h4 {
-    font: 400 2.5vmax "Roboto";
+  .vipGreetingBox {
+    max-width: 100%;
+    margin-bottom: 25px;
   }
 
-  .profileContainer > div:last-child > div > p {
-    font: 400 2vmax cursive;
-    margin: 0.5vmax 0;
+  .vipGreetingBox h1 {
+    font-size: 24px;
   }
 
-  .profileContainer > div:last-child > div:last-child > a {
-    font: 400 1.8vmax "Roboto";
-    padding: 1vmax;
-    margin: 2vmax 0;
+  .vipStatsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .vipActionsGrid {
+    grid-template-columns: 1fr;
   }
 }
