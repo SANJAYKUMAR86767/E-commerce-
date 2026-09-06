@@ -16,6 +16,7 @@ import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import StarIcon from "@material-ui/icons/Star";
 import ProductCard from "./ProductCard.js";
+import MysteryBoxModal from "./MysteryBoxModal";
 import { addItemsToCart } from "../../actions/cartAction";
 import { addToWishlist, removeFromWishlist } from "../../actions/wishlistAction";
 import "./ForYouHubView.css";
@@ -39,6 +40,7 @@ const ForYouHubView = ({ onSelectCategory }) => {
   const [timeLeft, setTimeLeft] = useState({ hours: 5, minutes: 47, seconds: 33 });
   const [quickViewItem, setQuickViewItem] = useState(null);
   const [activeBrandModal, setActiveBrandModal] = useState(null);
+  const [showMysteryBox, setShowMysteryBox] = useState(false);
 
   const handleVoiceSearch = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -506,7 +508,7 @@ const ForYouHubView = ({ onSelectCategory }) => {
         </div>
       </div>
 
-      {/* TRENDING SEARCHES - VIBRANT */}
+      {/* TRENDING SEARCHES - VIBRANT & INTERACTIVE */}
       <div className="fy-trending-searches fy-animate-1" style={{ marginBottom: "15px" }}>
         {[
           { text: "iPhone 15 Pro", icon: "📱", color: "#e8f0fe", textColor: "#1967d2" },
@@ -517,14 +519,25 @@ const ForYouHubView = ({ onSelectCategory }) => {
           { text: "Protein Powder", icon: "💪", color: "#e8f0fe", textColor: "#1967d2" },
           { text: "Office Chairs", icon: "🪑", color: "#fce8e6", textColor: "#d93025" },
         ].map((item, i) => (
-          <div key={i} className="fy-search-pill" style={{ background: item.color, color: item.textColor, border: "none", fontWeight: 800 }}>
+          <div
+            key={i}
+            className="fy-search-pill"
+            onClick={() => history.push(`/products?keyword=${encodeURIComponent(item.text)}`)}
+            style={{ background: item.color, color: item.textColor, border: "none", fontWeight: 800, cursor: "pointer" }}
+            title={`Search for ${item.text}`}
+          >
             <span>{item.icon}</span> {item.text}
           </div>
         ))}
       </div>
 
-      {/* DAILY MYSTERY REWARD */}
-      <div className="fy-animate-1" style={{ margin: "0 20px 15px", background: "linear-gradient(90deg, #111, #333)", borderRadius: "16px", padding: "15px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", boxShadow: "0 10px 20px rgba(0,0,0,0.15)", cursor: "pointer" }}>
+      {/* DAILY MYSTERY REWARD - INTERACTIVE */}
+      <div 
+        className="fy-animate-1" 
+        onClick={() => setShowMysteryBox(true)}
+        style={{ margin: "0 20px 15px", background: "linear-gradient(90deg, #111, #333)", borderRadius: "16px", padding: "15px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", boxShadow: "0 10px 20px rgba(0,0,0,0.15)", cursor: "pointer" }}
+        title="Tap to Open Daily Mystery Box"
+      >
         <div style={{ display: "flex", alignItems: "center", gap: 15 }}>
           <div style={{ fontSize: "2.5rem", animation: "fyFloat 3s ease-in-out infinite" }}>🎁</div>
           <div>
@@ -532,7 +545,13 @@ const ForYouHubView = ({ onSelectCategory }) => {
             <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.85rem", fontWeight: 600 }}>Tap to unlock today's guaranteed reward!</div>
           </div>
         </div>
+        <button style={{ background: "#00f5d4", color: "#000", border: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: 800, fontSize: "0.82rem", cursor: "pointer" }}>
+          Unwrap ✨
+        </button>
       </div>
+
+      {/* MYSTERY BOX MODAL */}
+      <MysteryBoxModal isOpen={showMysteryBox} onClose={() => setShowMysteryBox(false)} />
 
       {/* ═══════════════════════════════════════════════════════════
           FLIPKART LIVE DEALS OF THE DAY (CONNECTED TO MONGODB)

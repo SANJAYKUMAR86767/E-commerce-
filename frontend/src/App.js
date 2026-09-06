@@ -48,6 +48,7 @@ import Wishlist from "./component/Wishlist/Wishlist";
 import ChatWidget from "./component/layout/ChatWidget/ChatWidget";
 import FloatingAIWidget from "./component/Home/FloatingAIWidget";
 import BottomNavDock from "./component/layout/BottomNavDock/BottomNavDock";
+import LiveSalesToast from "./component/layout/LiveSalesToast/LiveSalesToast";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
@@ -193,6 +194,7 @@ function App() {
         </Switch>
 
         <FloatingAIWidget />
+        <LiveSalesToast />
         <Footer />
         <BottomNavDock />
       </Router>

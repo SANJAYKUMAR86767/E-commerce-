@@ -1,0 +1,120 @@
+/* ═════════════════════════════════════════════════════════════
+   FLIPKART REAL-TIME LIVE SALES TOAST NOTIFICATION
+═════════════════════════════════════════════════════════════ */
+.liveSalesToastContainer {
+  position: fixed;
+  bottom: 82px;
+  left: 20px;
+  z-index: 9980;
+  max-width: 330px;
+  pointer-events: auto;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liveSalesToastContainer.showToast {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.liveSalesToastContainer.hideToast {
+  opacity: 0;
+  transform: translateY(18px) scale(0.95);
+  pointer-events: none;
+}
+
+.liveToastInner {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 10px 12px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.liveToastThumb {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.liveToastContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.liveToastHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.2;
+}
+
+.liveToastUser {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.liveToastCity {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.liveToastVerified {
+  font-size: 13px !important;
+  color: #10b981;
+}
+
+.liveToastItem {
+  font-size: 0.76rem;
+  color: #334155;
+  margin: 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.liveToastItem strong {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.liveToastTime {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.liveToastDismiss {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.liveToastDismiss:hover {
+  color: #0f172a;
+}
+
+@media (max-width: 600px) {
+  .liveSalesToastContainer {
+    bottom: 74px;
+    left: 12px;
+    right: 12px;
+    max-width: none;
+  }
+}

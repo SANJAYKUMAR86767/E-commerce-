@@ -1,0 +1,239 @@
+/* ═════════════════════════════════════════════════════════════
+   FLIPKART DAILY MYSTERY BOX MODAL STYLES
+═════════════════════════════════════════════════════════════ */
+.mysteryOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(8px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.mysteryCardDialog {
+  background: #ffffff;
+  border-radius: 24px;
+  max-width: 460px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  text-align: center;
+  border: 1.5px solid #e2e8f0;
+  animation: popMystery 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popMystery {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.mysteryCloseBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.mysteryCloseBtn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.mysteryBadge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+}
+
+.mysteryBoxGraphic {
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: inline-block;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  animation: floatBox 2.5s ease-in-out infinite;
+}
+
+@keyframes floatBox {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.shakingBox {
+  animation: shakeAction 0.2s infinite alternate !important;
+}
+
+@keyframes shakeAction {
+  0% { transform: rotate(-8deg) scale(1.05); }
+  100% { transform: rotate(8deg) scale(1.05); }
+}
+
+.mysteryTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.4rem;
+}
+
+.mysteryDesc {
+  color: #64748b;
+  font-size: 0.88rem;
+  margin: 0 0 1.6rem;
+  line-height: 1.4;
+}
+
+.openMysteryBtn {
+  background: linear-gradient(135deg, #2874f0 0%, #1e40af 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(40, 116, 240, 0.35);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.openMysteryBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(40, 116, 240, 0.45);
+}
+
+.openMysteryBtn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* OPENED STATE */
+.mysteryCelebrationIcon {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  animation: bounceCeleb 0.5s ease;
+}
+
+@keyframes bounceCeleb {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.mysteryWonTitle {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #059669;
+  margin: 0 0 0.2rem;
+}
+
+.mysteryWonSubtitle {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin: 0 0 1.4rem;
+}
+
+.mysteryPrizesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: left;
+  margin-bottom: 1.6rem;
+}
+
+.mysteryPrizeItem {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prizeEmoji {
+  font-size: 1.8rem;
+}
+
+.mysteryPrizeItem strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #0f172a;
+}
+
+.mysteryPrizeItem p {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.mysteryCodeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.mysteryCoupon {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px dashed #d97706;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+}
+
+.mysteryCopyBtn {
+  background: #2874f0;
+  color: #ffffff;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mysteryDoneBtn {
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.6rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  justify-content: center;
+}
+
+.mysteryDoneBtn:hover {
+  background: #059669;
+}
