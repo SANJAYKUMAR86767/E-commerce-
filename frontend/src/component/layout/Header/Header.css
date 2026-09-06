@@ -211,3 +211,43 @@
     right: 15px;
   }
 }
+
+/* ── CART BADGE & VOICE MIC BUTTON ── */
+.fk-header-cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #ff6161;
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border: 1.5px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.fk-header-mic-btn {
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.fk-header-mic-btn:hover {
+  background: rgba(40, 116, 240, 0.1) !important;
+  transform: scale(1.1);
+}
+
+.fk-header-mic-btn.active {
+  animation: fkPulseMic 1.2s infinite;
+}
+
+@keyframes fkPulseMic {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

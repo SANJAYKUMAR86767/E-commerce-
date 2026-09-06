@@ -85,7 +85,10 @@ const Home = () => {
           {topCategory === "fashion" ? (
             <FashionHubView />
           ) : topCategory === "for-you" ? (
-            <ForYouHubView />
+            <ForYouHubView onSelectCategory={(catId, catName) => {
+              setTopCategory(catId);
+              if (catName) setTopCategoryName(catName);
+            }} />
           ) : topCategory === "mobiles" ? (
             <MobilesHubView />
           ) : topCategory === "beauty" ? (

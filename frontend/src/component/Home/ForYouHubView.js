@@ -1,11 +1,107 @@
 /* eslint-disable */
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
+import HomeIcon from "@material-ui/icons/Home";
+import SearchIcon from "@material-ui/icons/Search";
+import CategoryIcon from "@material-ui/icons/Category";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import MicIcon from "@material-ui/icons/Mic";
+import CloseIcon from "@material-ui/icons/Close";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import LocalShippingIcon from "@material-ui/icons/LocalShipping";
+import FlashOnIcon from "@material-ui/icons/FlashOn";
+import StarIcon from "@material-ui/icons/Star";
+import ProductCard from "./ProductCard.js";
+import { addItemsToCart } from "../../actions/cartAction";
+import { addToWishlist, removeFromWishlist } from "../../actions/wishlistAction";
 import "./ForYouHubView.css";
 
-const ForYouHubView = () => {
+const ForYouHubView = ({ onSelectCategory }) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
+  const { isAuthenticated, user } = useSelector((state) => state.user || {});
+  const { cartItems } = useSelector((state) => state.cart || {});
+  const { wishlistItems } = useSelector((state) => state.wishlist || {});
+  const { products } = useSelector((state) => state.products || {});
+
+  const [activeNavTab, setActiveNavTab] = useState("home");
+  const [showCategoryDrawer, setShowCategoryDrawer] = useState(false);
+  const [showSearchModal, setShowSearchModal] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [isVoiceListening, setIsVoiceListening] = useState(false);
+
   const [timeLeft, setTimeLeft] = useState({ hours: 5, minutes: 47, seconds: 33 });
   const [quickViewItem, setQuickViewItem] = useState(null);
   const [activeBrandModal, setActiveBrandModal] = useState(null);
+
+  const handleVoiceSearch = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert.error("Voice search requires Chrome or Edge browser.");
+      return;
+    }
+    try {
+      const recognition = new SpeechRecognition();
+      recognition.lang = "en-IN";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      setIsVoiceListening(true);
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setSearchKeyword(transcript);
+        setIsVoiceListening(false);
+        setShowSearchModal(false);
+        history.push(`/products?keyword=${encodeURIComponent(transcript)}`);
+      };
+
+      recognition.onerror = () => {
+        setIsVoiceListening(false);
+      };
+
+      recognition.onend = () => {
+        setIsVoiceListening(false);
+      };
+    } catch (e) {
+      setIsVoiceListening(false);
+    }
+  };
+
+  const handleSearchSubmit = (e) => {
+    if (e) e.preventDefault();
+    if (searchKeyword.trim()) {
+      setShowSearchModal(false);
+      history.push(`/products?keyword=${encodeURIComponent(searchKeyword.trim())}`);
+    }
+  };
+
+  const handleCategoryClick = (catId, catName) => {
+    setShowCategoryDrawer(false);
+    if (onSelectCategory) {
+      onSelectCategory(catId, catName);
+    } else {
+      history.push(`/products?category=${catId}`);
+    }
+  };
+
+  const handleQuickViewAddToCart = () => {
+    if (quickViewItem) {
+      const prodId = quickViewItem._id || quickViewItem.id;
+      if (prodId) {
+        dispatch(addItemsToCart(prodId, 1));
+      }
+      alert.success("Added to Flipkart Bag!");
+      setQuickViewItem(null);
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -437,6 +533,36 @@ const ForYouHubView = () => {
           </div>
         </div>
       </div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          FLIPKART LIVE DEALS OF THE DAY (CONNECTED TO MONGODB)
+      ═══════════════════════════════════════════════════════════ */}
+      {products && products.length > 0 && (
+        <div className="fy-live-deals-section fy-animate-2">
+          <div className="fy-live-deals-header">
+            <div className="fy-deals-left">
+              <span className="fy-pulse-indicator"></span>
+              <div>
+                <h3 className="fy-deals-title">🔥 Deals of the Day</h3>
+                <p className="fy-deals-subtitle">Real-time dynamic discounts live from Flipkart Warehouse</p>
+              </div>
+            </div>
+            <div className="fy-deals-timer-box">
+              <span className="fy-timer-clock-icon">⏱️</span>
+              <span className="fy-timer-label">Ends in:</span>
+              <span className="fy-timer-digits">
+                {pad(timeLeft.hours)}h : {pad(timeLeft.minutes)}m : {pad(timeLeft.seconds)}s
+              </span>
+            </div>
+          </div>
+
+          <div className="fy-live-products-grid">
+            {products.slice(0, 8).map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* KIRANA / GROCERY SECTION */}
       <div className="fy-animate-2" style={{ padding: "0 15px", marginBottom: "30px", marginTop: "20px" }}>
@@ -918,35 +1044,220 @@ const ForYouHubView = () => {
 
 
 
-      {/* STICKY BOTTOM NAV (Mobile View) */}
+      {/* ═══════════════════════════════════════════════════════════
+          FLIPKART ULTRA-ADVANCED INTERACTIVE MOBILE/DESKTOP DOCK
+      ═══════════════════════════════════════════════════════════ */}
       <div className="fy-sticky-nav">
-        <div className="fy-nav-item active">
-          <span>🏠</span>
-          <small>Home</small>
+        <div 
+          className={`fy-nav-item ${activeNavTab === "home" ? "active" : ""}`}
+          onClick={() => {
+            setActiveNavTab("home");
+            if (onSelectCategory) onSelectCategory("for-you", "For You");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          title="Go to Home"
+        >
+          <HomeIcon className="fy-nav-icon" />
+          <span className="fy-nav-label">Home</span>
         </div>
-        <div className="fy-nav-item">
-          <span>🔍</span>
-          <small>Search</small>
+
+        <div 
+          className={`fy-nav-item ${activeNavTab === "search" ? "active" : ""}`}
+          onClick={() => {
+            setActiveNavTab("search");
+            setShowSearchModal(true);
+          }}
+          title="Search Products"
+        >
+          <SearchIcon className="fy-nav-icon" />
+          <span className="fy-nav-label">Search</span>
         </div>
-        <div className="fy-nav-item">
-          <span>🛍️</span>
-          <small>Categories</small>
+
+        <div 
+          className={`fy-nav-item ${activeNavTab === "categories" ? "active" : ""}`}
+          onClick={() => {
+            setActiveNavTab("categories");
+            setShowCategoryDrawer(true);
+          }}
+          title="Browse All Categories"
+        >
+          <CategoryIcon className="fy-nav-icon" />
+          <span className="fy-nav-label">Categories</span>
         </div>
-        <div className="fy-nav-item">
-          <span>❤️</span>
-          <small>Wishlist</small>
+
+        <div 
+          className={`fy-nav-item ${activeNavTab === "wishlist" ? "active" : ""}`}
+          onClick={() => {
+            setActiveNavTab("wishlist");
+            history.push("/wishlist");
+          }}
+          title="My Wishlist"
+        >
+          <div className="fy-nav-icon-wrapper">
+            <FavoriteIcon className="fy-nav-icon" />
+            {wishlistItems && wishlistItems.length > 0 && (
+              <span className="fy-dock-badge">{wishlistItems.length}</span>
+            )}
+          </div>
+          <span className="fy-nav-label">Wishlist</span>
         </div>
-        <div className="fy-nav-item">
-          <span>👤</span>
-          <small>Account</small>
+
+        <div 
+          className={`fy-nav-item ${activeNavTab === "account" ? "active" : ""}`}
+          onClick={() => {
+            setActiveNavTab("account");
+            history.push(isAuthenticated ? "/account" : "/login");
+          }}
+          title="Account / Orders"
+        >
+          <AccountCircleIcon className="fy-nav-icon" />
+          <span className="fy-nav-label">
+            {isAuthenticated ? (user && user.name ? user.name.split(" ")[0] : "Account") : "Login"}
+          </span>
+        </div>
+
+        <div 
+          className={`fy-nav-item ${activeNavTab === "cart" ? "active" : ""}`}
+          onClick={() => {
+            setActiveNavTab("cart");
+            history.push("/cart");
+          }}
+          title="Shopping Cart"
+        >
+          <div className="fy-nav-icon-wrapper">
+            <ShoppingCartIcon className="fy-nav-icon" />
+            {cartItems && cartItems.length > 0 && (
+              <span className="fy-dock-badge fy-dock-badge-cart">{cartItems.length}</span>
+            )}
+          </div>
+          <span className="fy-nav-label">Cart</span>
         </div>
       </div>
 
-      {/* FLOATING CART BUTTON */}
-      <div className="fy-floating-cart">
-        🛒
-        <div className="fy-cart-badge">2</div>
+      {/* FLOATING CART BUTTON (With Live Redux Badge) */}
+      <div 
+        className="fy-floating-cart"
+        onClick={() => history.push("/cart")}
+        title="View Cart"
+      >
+        <ShoppingCartIcon style={{ fontSize: 26, color: "#fff" }} />
+        <div className="fy-cart-badge">{cartItems ? cartItems.length : 0}</div>
       </div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          INTERACTIVE FLIPKART CATEGORY DRAWER
+      ═══════════════════════════════════════════════════════════ */}
+      {showCategoryDrawer && (
+        <div className="fy-category-drawer-overlay" onClick={() => setShowCategoryDrawer(false)}>
+          <div className="fy-category-drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="fy-drawer-header">
+              <div className="fy-drawer-title">
+                <span className="fy-fk-yellow-tag">⚡ FLIPKART EXPLORE</span>
+                <h3>All Product Departments</h3>
+              </div>
+              <button className="fy-drawer-close" onClick={() => setShowCategoryDrawer(false)}>
+                <CloseIcon />
+              </button>
+            </div>
+
+            <div className="fy-category-grid">
+              {[
+                { id: "for-you", name: "For You / Deals", icon: "⚡", tag: "Hot Offers", desc: "Handpicked deals & flash sales" },
+                { id: "mobiles", name: "Mobiles & Tech", icon: "📱", tag: "Up to 40% Off", desc: "Apple, Samsung, OnePlus, Pixel" },
+                { id: "electronics", name: "Electronics & Laptops", icon: "💻", tag: "Best Sellers", desc: "MacBooks, Monitors, Audio & TWS" },
+                { id: "fashion", name: "Fashion & Lifestyle", icon: "👕", tag: "Min. 50% Off", desc: "Men, Women, Kids & Footwear" },
+                { id: "beauty", name: "Beauty & Grooming", icon: "💄", tag: "Top Brands", desc: "Skincare, Fragrances, Cosmetics" },
+                { id: "home", name: "Home & Furniture", icon: "🛋️", tag: "Great Living", desc: "Decor, Cookware, Bedsheets" },
+                { id: "appliances", name: "TV & Appliances", icon: "📺", tag: "No Cost EMI", desc: "Smart TVs, ACs, Washing Machines" },
+                { id: "grocery", name: "Flipkart Grocery", icon: "🛒", tag: "Instant Saver", desc: "Daily essentials at lowest prices" },
+              ].map((cat) => (
+                <div 
+                  key={cat.id} 
+                  className="fy-cat-card"
+                  onClick={() => handleCategoryClick(cat.id, cat.name)}
+                >
+                  <div className="fy-cat-card-icon">{cat.icon}</div>
+                  <div className="fy-cat-card-info">
+                    <div className="fy-cat-card-name">{cat.name}</div>
+                    <div className="fy-cat-card-desc">{cat.desc}</div>
+                    <span className="fy-cat-card-tag">{cat.tag}</span>
+                  </div>
+                  <ArrowForwardIosIcon className="fy-cat-arrow" style={{ fontSize: 14 }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ═══════════════════════════════════════════════════════════
+          INTERACTIVE SMART VOICE & TEXT SEARCH MODAL
+      ═══════════════════════════════════════════════════════════ */}
+      {showSearchModal && (
+        <div className="fy-search-modal-overlay" onClick={() => setShowSearchModal(false)}>
+          <div className="fy-search-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="fy-search-modal-header">
+              <form className="fy-search-bar-form" onSubmit={handleSearchSubmit}>
+                <SearchIcon className="fy-search-input-icon" />
+                <input
+                  type="text"
+                  placeholder="Search for Products, Brands and More..."
+                  value={searchKeyword}
+                  onChange={(e) => setSearchKeyword(e.target.value)}
+                  autoFocus
+                  className="fy-search-modal-input"
+                />
+                <button
+                  type="button"
+                  className={`fy-mic-btn ${isVoiceListening ? "listening" : ""}`}
+                  onClick={handleVoiceSearch}
+                  title="Search by Voice"
+                >
+                  <MicIcon style={{ color: isVoiceListening ? "#ef4444" : "#2874f0" }} />
+                </button>
+                <button type="submit" className="fy-search-submit-btn">Search</button>
+              </form>
+              <button className="fy-search-close-btn" onClick={() => setShowSearchModal(false)}>
+                <CloseIcon />
+              </button>
+            </div>
+
+            {isVoiceListening && (
+              <div className="fy-voice-indicator">
+                <div className="fy-pulse-ring"></div>
+                <span>Listening... Speak your product name</span>
+              </div>
+            )}
+
+            <div className="fy-trending-searches">
+              <div className="fy-trending-title">🔥 Trending Searches on Flipkart</div>
+              <div className="fy-trending-chips">
+                {[
+                  "iPhone 15 Pro",
+                  "MacBook Air M3",
+                  "Sony Wireless Headphones",
+                  "Running Shoes",
+                  "Casual Shirts",
+                  "Smart Watches",
+                  "Air Conditioners",
+                  "4K OLED TV"
+                ].map((term) => (
+                  <button
+                    key={term}
+                    className="fy-trend-chip"
+                    onClick={() => {
+                      setShowSearchModal(false);
+                      history.push(`/products?keyword=${encodeURIComponent(term)}`);
+                    }}
+                  >
+                    🔍 {term}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* PROPER WORKING FEATURE: QUICK VIEW MODAL */}
       {quickViewItem && (
@@ -971,8 +1282,18 @@ const ForYouHubView = () => {
                 <div className="fy-qv-var">XL</div>
               </div>
               <div className="fy-qv-actions">
-                <button className="fy-qv-add" onClick={() => { alert('Added to Mega Cart!'); setQuickViewItem(null); }}>Add to Bag 🛍️</button>
-                <div className="fy-qv-wishlist">♡</div>
+                <button className="fy-qv-add" onClick={handleQuickViewAddToCart}>Add to Bag 🛍️</button>
+                <div 
+                  className="fy-qv-wishlist"
+                  onClick={() => {
+                    const pid = quickViewItem._id || quickViewItem.id;
+                    if (pid) dispatch(addToWishlist(pid));
+                    alert.success("Added to Wishlist!");
+                  }}
+                  title="Add to Wishlist"
+                >
+                  ♡
+                </div>
               </div>
             </div>
           </div>

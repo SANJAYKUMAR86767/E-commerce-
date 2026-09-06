@@ -39,62 +39,41 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-const { seedSampleProductsIfEmpty, sampleProductsData } = require("../utils/sampleProducts");
+const { seedSampleProductsIfEmpty, sampleProductsData, queryCatalog, getProductById } = require("../utils/sampleProducts");
 
-// Get All Product
+// Get All Products (Flipkart Mega Catalog with 10,000+ Products)
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
-  const resultPerPage = 8;
-  let products = [];
+  const resultPerPage = 12;
+  
+  // Seed sample products if MongoDB is active
+  seedSampleProductsIfEmpty().catch(() => {});
 
-  try {
-    await seedSampleProductsIfEmpty();
-    const apiFeature = new ApiFeatures(Product.find(), req.query)
-      .search()
-      .filter()
-      .sort();
-    products = await apiFeature.query;
-  } catch (dbErr) {
-    console.log("Database connection bypass / offline:", dbErr.message);
-  }
-
-  // Fallback to sampleProductsData if database returns 0 items
-  if (!products || products.length === 0) {
-    products = sampleProductsData;
-    if (req.query.category) {
-      const cat = req.query.category.toLowerCase();
-      let matchCategories = [cat];
-      if (cat === "mobiles" || cat === "smartphones") matchCategories = ["smartphones", "mobiles"];
-      else if (cat === "electronics" || cat === "laptop" || cat === "camera") matchCategories = ["laptop", "camera", "electronics"];
-      else if (cat === "fashion" || cat === "attire" || cat === "tops" || cat === "bottom") matchCategories = ["attire", "tops", "bottom", "fashion"];
-      else if (cat === "home" || cat === "appliances") matchCategories = ["appliances", "home", "tops"];
-
-      const matched = products.filter(
-        (p) => p.category && matchCategories.includes(p.category.toLowerCase())
-      );
-      if (matched.length > 0) products = matched;
-    }
-  }
-
-  const filteredProductsCount = products.length;
-
-  const page = Number(req.query.page) || 1;
-  const startIndex = (page - 1) * resultPerPage;
-  const paginatedProducts = products.slice(startIndex, startIndex + resultPerPage);
-
-  const totalCatalogScale = 100000;
+  // Query the 10,000+ products catalog with full-text search, category, price, rating, and pagination
+  const result = queryCatalog(req.query, resultPerPage);
 
   res.status(200).json({
     success: true,
-    products: paginatedProducts,
-    productsCount: totalCatalogScale,
-    resultPerPage,
-    filteredProductsCount: req.query.category ? filteredProductsCount : totalCatalogScale,
+    products: result.products,
+    productsCount: result.totalCount,
+    resultPerPage: result.limit,
+    filteredProductsCount: result.totalCount,
+    page: result.page,
+    totalPages: result.totalPages,
   });
 });
 
 // Get All Product (Admin)
 exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
-  const products = await Product.find();
+  let products = [];
+  try {
+    products = await Product.find();
+  } catch (err) {
+    products = [];
+  }
+
+  if (!products || products.length === 0) {
+    products = sampleProductsData.slice(0, 100);
+  }
 
   res.status(200).json({
     success: true,
@@ -115,7 +94,7 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
   }
 
   if (!product) {
-    product = sampleProductsData.find((p) => String(p._id) === String(req.params.id));
+    product = getProductById(req.params.id);
   }
 
   if (!product && sampleProductsData.length > 0) {

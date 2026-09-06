@@ -46,6 +46,7 @@ import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
 import Wishlist from "./component/Wishlist/Wishlist";
 import ChatWidget from "./component/layout/ChatWidget/ChatWidget";
+import FloatingAIWidget from "./component/Home/FloatingAIWidget";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
@@ -190,7 +191,7 @@ function App() {
           <Route component={NotFound} />
         </Switch>
 
-        <ChatWidget />
+        <FloatingAIWidget />
         <Footer />
       </Router>
     </ThemeProvider>
