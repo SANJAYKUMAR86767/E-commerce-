@@ -226,14 +226,14 @@ const Header = () => {
 
       </div>
 
-      {/* THEME TOGGLE (Fixed to bottom-left screen so it doesn't collide with bottom-right AI Copilot) */}
+      {/* THEME TOGGLE (Fixed to bottom-left screen above dock so it doesn't collide with bottom dock or AI Copilot) */}
       <button
         className="themeToggleBtn"
         onClick={toggleTheme}
         style={{
           position: "fixed",
-          bottom: "24px",
-          left: "24px",
+          bottom: "78px",
+          left: "20px",
           zIndex: "1000",
         }}
         title="Toggle Light/Dark Theme"
