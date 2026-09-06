@@ -137,6 +137,29 @@ const Header = () => {
             </span>
           </div>
 
+          {/* LIVE TRACK DELIVERY PILL */}
+          <Link
+            to="/order/track"
+            className="fk-nav-item fk-track-pill"
+            title="Real-Time Live Package Tracking"
+            style={{
+              textDecoration: "none",
+              background: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)",
+              border: "1px solid #6ee7b7",
+              borderRadius: "50px",
+              padding: "0.35rem 0.8rem",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.35rem"
+            }}
+          >
+            <span style={{ fontSize: "0.95rem" }}>📍</span>
+            <span style={{ color: "#065f46", fontWeight: 800, fontSize: "0.82rem" }}>
+              Track Delivery 🛵
+            </span>
+          </Link>
+
           {/* LOGIN DROPDOWN */}
           <div className="fk-nav-item">
             <AccountCircleIcon className="fk-nav-item-icon" style={{color: '#2874f0'}} />
@@ -172,6 +195,10 @@ const Header = () => {
               <Link to="/orders" className="fk-dropdown-item">
                 <AssignmentIcon className="fk-dropdown-item-icon" />
                 Orders
+              </Link>
+              <Link to="/order/track" className="fk-dropdown-item" style={{ color: "#059669", fontWeight: 700 }}>
+                <span style={{ fontSize: "1.1rem", width: 20, textAlign: "center" }}>🛵</span>
+                Track Live Delivery
               </Link>
               <Link to="/wishlist" className="fk-dropdown-item">
                 <FavoriteBorderIcon className="fk-dropdown-item-icon" />

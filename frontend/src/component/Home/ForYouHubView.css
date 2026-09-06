@@ -12,21 +12,22 @@
   flex-direction: column;
   gap: 30px;
   position: relative;
+  overflow-x: hidden;
 }
 
-/* ── ANIMATIONS ── */
-.fy-animate-1 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0s both; }
-.fy-animate-2 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s both; }
-.fy-animate-3 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s both; }
-.fy-animate-4 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s both; }
-.fy-animate-5 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s both; }
-.fy-animate-6 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s both; }
-.fy-animate-7 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s both; }
-.fy-animate-8 { animation: fyFadeUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.7s both; }
+/* ── ANIMATIONS (Stabilized to prevent layout shifting) ── */
+.fy-animate-1 { animation: fyFadeIn 0.4s ease 0s both; }
+.fy-animate-2 { animation: fyFadeIn 0.4s ease 0.05s both; }
+.fy-animate-3 { animation: fyFadeIn 0.4s ease 0.1s both; }
+.fy-animate-4 { animation: fyFadeIn 0.4s ease 0.15s both; }
+.fy-animate-5 { animation: fyFadeIn 0.4s ease 0.2s both; }
+.fy-animate-6 { animation: fyFadeIn 0.4s ease 0.25s both; }
+.fy-animate-7 { animation: fyFadeIn 0.4s ease 0.3s both; }
+.fy-animate-8 { animation: fyFadeIn 0.4s ease 0.35s both; }
 
 @keyframes fyFadeUp {
-  from { opacity: 0; transform: translateY(40px) scale(0.98); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes fyFadeIn {
@@ -35,47 +36,48 @@
 }
 
 @keyframes fyPopIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fyFloat {
   0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(3deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
   100% { transform: translateY(0px) rotate(0deg); }
 }
 
 @keyframes fyGlowPulse {
   0% { box-shadow: 0 0 20px rgba(0, 245, 212, 0.4); }
-  50% { box-shadow: 0 0 50px rgba(0, 245, 212, 0.8); }
+  50% { box-shadow: 0 0 40px rgba(0, 245, 212, 0.7); }
   100% { box-shadow: 0 0 20px rgba(0, 245, 212, 0.4); }
 }
 
 @keyframes fyPulseWhite {
   0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
-/* ── LIVE TICKER ── */
+/* ── LIVE TICKER (No 100vw overflow) ── */
 .fy-ticker-bar {
   background: linear-gradient(90deg, #ff007f, #7928ca);
   color: white;
-  padding: 12px 0;
+  padding: 10px 0;
   overflow: hidden;
   font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  width: 100%;
 }
 
 .fy-ticker-track {
   display: inline-block;
   white-space: nowrap;
-  animation: fyTicker 35s linear infinite;
+  animation: fyTicker 30s linear infinite;
 }
 
 @keyframes fyTicker {
-  from { transform: translateX(100vw); }
+  from { transform: translateX(100%); }
   to   { transform: translateX(-100%); }
 }
 

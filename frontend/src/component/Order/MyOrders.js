@@ -50,16 +50,37 @@ const MyOrders = () => {
 
     {
       field: "actions",
-      flex: 0.3,
+      flex: 0.4,
       headerName: "Actions",
-      minWidth: 150,
+      minWidth: 170,
       type: "number",
       sortable: false,
       renderCell: (params) => {
         return (
-          <Link to={`/order/${params.getValue(params.id, "id")}`}>
-            <LaunchIcon />
-          </Link>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <Link
+              to={`/order/track/${params.getValue(params.id, "id")}`}
+              style={{
+                background: "#ecfdf5",
+                color: "#059669",
+                border: "1px solid #a7f3d0",
+                padding: "3px 10px",
+                borderRadius: "14px",
+                fontWeight: 800,
+                fontSize: "0.75rem",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "3px"
+              }}
+              title="Track Live GPS Location"
+            >
+              <span>🛵 Track Live</span>
+            </Link>
+            <Link to={`/order/${params.getValue(params.id, "id")}`} title="View Order Details">
+              <LaunchIcon style={{ fontSize: 18, color: "#2874f0" }} />
+            </Link>
+          </div>
         );
       },
     },

@@ -16,6 +16,7 @@ import MicIcon from "@material-ui/icons/Mic";
 import CloseIcon from "@material-ui/icons/Close";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
+import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 
 const FLIPKART_DEPARTMENTS = [
   { id: "mobiles", name: "Mobiles & Tech", icon: "📱", tag: "Up to 40% Off", desc: "Apple, Samsung, OnePlus, Pixel", query: "phone" },
@@ -220,7 +221,19 @@ const BottomNavDock = () => {
           <span className="fk-dock-label">Cart</span>
         </div>
 
-        {/* 6. ACCOUNT */}
+        {/* 6. TRACK DELIVERY */}
+        <div
+          className={`fk-dock-btn ${currentPath.startsWith("/order/track") ? "active" : ""}`}
+          onClick={() => history.push("/order/track")}
+          title="Track Live Package"
+        >
+          <div className="fk-dock-icon-box">
+            <LocalShippingIcon className="fk-dock-svg-icon" />
+          </div>
+          <span className="fk-dock-label">Track 🛵</span>
+        </div>
+
+        {/* 7. ACCOUNT */}
         <div
           className={`fk-dock-btn ${activeTab === "account" ? "active" : ""}`}
           onClick={() => history.push(isAuthenticated ? "/account" : "/login")}

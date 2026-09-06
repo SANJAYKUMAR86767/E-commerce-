@@ -96,10 +96,8 @@ const ForYouHubView = ({ onSelectCategory }) => {
 
   const handleQuickViewAddToCart = () => {
     if (quickViewItem) {
-      const prodId = quickViewItem._id || quickViewItem.id;
-      if (prodId) {
-        dispatch(addItemsToCart(prodId, 1));
-      }
+      const prodId = quickViewItem._id || quickViewItem.id || `qv_${Date.now()}`;
+      dispatch(addItemsToCart(prodId, 1, quickViewItem));
       alert.success("Added to Flipkart Bag!");
       setQuickViewItem(null);
     }

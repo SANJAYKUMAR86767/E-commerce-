@@ -1,0 +1,725 @@
+/* ═════════════════════════════════════════════════════════════
+   FLIPKART ENTERPRISE REAL-TIME LIVE DELIVERY TRACKER STYLING
+   Ultra-modern GPS radar map, live rider telemetry, animated stages
+═════════════════════════════════════════════════════════════ */
+
+.liveTrackerContainer {
+  max-width: 1200px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1.2rem;
+  font-family: 'Outfit', 'Roboto', sans-serif;
+  color: var(--text-primary, #0f172a);
+}
+
+/* TOP BREADCRUMB & BACK BUTTON */
+.trackerTopNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trackerBackBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #2874f0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.trackerBackBtn:hover {
+  background: #f0f5ff;
+  transform: translateX(-3px);
+}
+
+.trackerSearchForm {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 30px;
+  padding: 4px 6px 4px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.trackerSearchInput {
+  border: none;
+  outline: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #1e293b;
+  width: 220px;
+}
+
+.trackerSearchSubmit {
+  background: #2874f0;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.trackerSearchSubmit:hover {
+  background: #1d4ed8;
+}
+
+/* HERO ORDER STATUS CARD */
+.trackerHeroCard {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+  margin-bottom: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.trackerHeroCard::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(40, 116, 240, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.trackerHeroTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 1.2rem;
+}
+
+.trackerOrderMeta h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.trackerOrderIdBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #93c5fd;
+  font-family: monospace;
+}
+
+.trackerLivePulsePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  color: #4ade80;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.liveGpsDot {
+  width: 9px;
+  height: 9px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: gpsPulse 1.5s infinite;
+}
+
+@keyframes gpsPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.trackerHeroGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trackerStatItem small {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.trackerStatItem span {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.trackerStatItem .highlightText {
+  color: #38bdf8;
+}
+
+/* MAIN TRACKER LAYOUT: MAP + TELEMETRY + TIMELINE */
+.trackerMainLayout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+  .trackerMainLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RADAR MAP CONTAINER & SIMULATED GPS ROUTE
+═══════════════════════════════════════════════════════════ */
+.radarMapContainer {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.radarMapHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.radarMapTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radarRefreshBtn {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2874f0;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.radarRefreshBtn:hover {
+  background: #dbeafe;
+}
+
+/* MAP CANVAS VISUAL */
+.radarCanvasVisual {
+  width: 100%;
+  height: 340px;
+  background: #0f172a;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid #334155;
+}
+
+/* Radar Grid Background Lines */
+.radarGridBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(51, 65, 85, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 65, 85, 0.3) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Radar Sweep Beam */
+.radarSweepBeam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin-top: -150px;
+  margin-left: -150px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(40, 116, 240, 0.25) 0deg, transparent 60deg);
+  animation: radarRotate 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes radarRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* SVG Route Track */
+.radarRouteSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.routePathBase {
+  stroke: #334155;
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.routePathActive {
+  stroke: #38bdf8;
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 8 6;
+  animation: dashMove 1.5s linear infinite;
+}
+
+@keyframes dashMove {
+  to { stroke-dashoffset: -28; }
+}
+
+/* Waypoint Icons on Map */
+.mapPin {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapPinBadge {
+  background: rgba(15, 23, 42, 0.9);
+  color: #f8fafc;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  border: 1px solid #475569;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.mapPinIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.originPin .mapPinIcon { background: #64748b; color: white; }
+.hubPin .mapPinIcon { background: #2874f0; color: white; }
+.destinationPin .mapPinIcon { background: #ef4444; color: white; animation: homeBounce 2s infinite; }
+
+@keyframes homeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Animated Rider Marker */
+.riderMarker {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.riderMarkerBox {
+  background: #22c55e;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.3), 0 8px 20px rgba(0,0,0,0.4);
+  animation: riderPulse 1.8s infinite;
+}
+
+@keyframes riderPulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7), 0 8px 20px rgba(0,0,0,0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(34, 197, 94, 0), 0 8px 20px rgba(0,0,0,0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0), 0 8px 20px rgba(0,0,0,0.4); }
+}
+
+.riderLabelTag {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #22c55e;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* TELEMETRY HUD BAR (Below Map) */
+.mapTelemetryBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.telemetryTile {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  text-align: center;
+}
+
+.telemetryTile small {
+  display: block;
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.telemetryTile strong {
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+/* SIMULATION CONTROL BUTTON */
+.simulationActionRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.simAdvanceBtn {
+  flex: 1;
+  background: linear-gradient(135deg, #2874f0 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(40, 116, 240, 0.3);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.simAdvanceBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 116, 240, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DELIVERY PARTNER CARD & STAGES TIMELINE (Right Column)
+═══════════════════════════════════════════════════════════ */
+.trackerSidePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* PARTNER CARD */
+.deliveryPartnerCard {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  padding: 1.4rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.partnerCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1rem;
+}
+
+.partnerAvatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8 0%, #2874f0 100%);
+  color: white;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+}
+
+.partnerInfo h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.partnerInfo p {
+  font-size: 0.78rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.partnerRatingBadge {
+  background: #ecfdf5;
+  color: #059669;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+}
+
+.otpRow {
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.otpLabel {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.otpValue {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #2874f0;
+  font-family: monospace;
+}
+
+.partnerCallBtn {
+  width: 100%;
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+.partnerCallBtn:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+/* 5-STAGE PROGRESS TIMELINE */
+.deliveryTimelineCard {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  padding: 1.4rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.deliveryTimelineCard h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timelineStepList {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 28px;
+}
+
+.timelineStepList::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 8px;
+  bottom: 16px;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.timelineStageItem {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.timelineStageItem:last-child {
+  padding-bottom: 0;
+}
+
+.stageDot {
+  position: absolute;
+  left: -28px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.timelineStageItem.completed .stageDot {
+  background: #22c55e;
+  border-color: #dcfce7;
+}
+
+.timelineStageItem.active .stageDot {
+  background: #2874f0;
+  border-color: #dbeafe;
+  animation: stagePulse 1.5s infinite;
+}
+
+@keyframes stagePulse {
+  0% { box-shadow: 0 0 0 0 rgba(40, 116, 240, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(40, 116, 240, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(40, 116, 240, 0); }
+}
+
+.stageTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.stageTitle {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.stageTime {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.stageDesc {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* REAL-TIME EVENT LOG */
+.eventLogCard {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  padding: 1.4rem;
+  margin-top: 1.8rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.eventLogCard h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.eventLogTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.eventLogTable th {
+  text-align: left;
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.eventLogTable td {
+  padding: 10px;
+  font-size: 0.82rem;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.eventLogTable tr:last-child td {
+  border-bottom: none;
+}

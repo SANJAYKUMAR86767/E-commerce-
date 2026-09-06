@@ -49,6 +49,7 @@ import ChatWidget from "./component/layout/ChatWidget/ChatWidget";
 import FloatingAIWidget from "./component/Home/FloatingAIWidget";
 import BottomNavDock from "./component/layout/BottomNavDock/BottomNavDock";
 import LiveSalesToast from "./component/layout/LiveSalesToast/LiveSalesToast";
+import LiveDeliveryTracker from "./component/Order/LiveDeliveryTracker";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
@@ -128,6 +129,9 @@ function App() {
           <ProtectedRoute exact path="/orders" component={MyOrders} />
 
           <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+
+          <Route exact path="/order/track" component={LiveDeliveryTracker} />
+          <Route exact path="/order/track/:id" component={LiveDeliveryTracker} />
 
           <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
 
